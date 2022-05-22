@@ -1,15 +1,30 @@
 week 1 : Starting reading and documentating on the Required Knowledge
 (16/05/22 -- 22/05/22)
 		-- getting information on how to use intel documentation.
-		-- getting basic information on how a CPU work.
-		-- getting basic information on x86 assembly.
-		-- strating tutoriel on how to use objdump.
-		-- starting Bran's tutoriel for kernel coding
 
-week 2 :  Starting coding on kernel entry point / linker file .
+		-- getting basic information on how a CPU work.
+
+		-- getting basic information on x86 assembly.
+
+		-- starting tutoriel on how to use objdump.
+
+		-- starting Bran's tutoriel for kernel coding.
+
+week 2 :  Kernel base code session, Understanding basic architecture .
 (22/05/22 -- 29/05/22)
-		-- finished coding main / linker file / screen driver / entry point
-		"file"
+		-- finished coding main.c start.s scrn.c link.ld.
+
 		-- figuring out why grub don't load the kernel ("got multiboot header
-		missing")
-		
+		missing").
+
+		-- found that multiboot header constants (magic, flags, checksum)
+		were not properly initialized in start.s, and starti.s had wrong
+		extension (.asm instead of .s).
+
+		-- Having a "Hello Kernel World !" printed and working, i will now
+		rework on the understanding of the actual architecture. (why theses
+		work and how they work together)
+
+week 3 : GDT implementation
+(29/05/22 - 05/06/22)
+		--
