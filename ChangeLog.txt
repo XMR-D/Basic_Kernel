@@ -1,0 +1,15 @@
+week 1 : Starting reading and documentating on the Required Knowledge
+(16/05/22 -- 22/05/22)
+		-- getting information on how to use intel documentation.
+		-- getting basic information on how a CPU work.
+		-- getting basic information on x86 assembly.
+		-- strating tutoriel on how to use objdump.
+		-- starting Bran's tutoriel for kernel coding
+
+week 2 :  Starting coding on kernel entry point / linker file .
+(22/05/22 -- 29/05/22)
+		-- finished coding main / linker file / screen driver / entry point
+		"file"
+		-- figuring out why grub don't load the kernel ("got multiboot header
+		missing")
+		
