@@ -1,4 +1,5 @@
 #include "system.h"
+#include <stdarg.h>
 
 /* These define our textpointer, our background and foreground
 *  colors (attributes), and x and y cursor coordinates */
@@ -142,12 +143,124 @@ void puts(unsigned char *text)
     }
 }
 
+void putint(int nb)
+{
+    int count = 1;
+    int x = 0;
+    int saved = nb;
+    if(nb < 0)
+    {
+        putch((unsigned char) '-');
+        nb *= -1;
+    }
+    while(nb > 0)
+    {
+        nb /= 10;
+        count *= 10;
+    }
+    while(count > 0)
+    {
+        if(x >= 1)
+        {
+            putch((saved/count) + 48);
+            saved -= (saved/count)*count;
+            count /= 10;
+        }
+        else
+        {
+            x += 1;
+            count /= 10;
+        }
+    }
+}
+
+void puthex(int nb)
+{
+    int temp = 0;
+    char * arr = "00000000";
+    int i = 0;
+    while(nb > 0)
+    {
+        temp = nb % 16;
+        if(temp < 10)
+        {
+            arr[i] = temp+48;
+            i += 1;
+        }
+        else
+        {
+            arr[i] = temp+55;
+            i += 1;
+        }
+        nb /= 16;
+    }
+    
+    for(i = strlen(arr); i >= 0; i--)
+        putch(arr[i]);
+}
+
 /* Sets the forecolor and backcolor that we will use */
 void settextcolor(unsigned char forecolor, unsigned char backcolor)
 {
     /* Top 4 bytes are the background, bottom 4 bytes
     *  are the foreground color */
     attrib = (backcolor << 4) | (forecolor & 0x0F);
+}
+
+/* print a string on the terminal, format (= %c, %s, %d, %u, %x) */
+void printf(unsigned char * str, ...)
+{
+    int i = 0;
+    va_list ap;
+
+    /* Set our constant for formatting string */
+    int chara;
+    char * string;
+    int inte;
+    int hex;
+    unsigned int unsi;
+    va_start(ap, str);
+
+
+    while(str[i] != '\0')
+    {
+        if(str[i] == '%')
+        {
+            i += 1;
+            switch(str[i])
+            {
+                case 'c':
+                    chara = va_arg(ap, int);
+                    putch(chara);
+                    break;
+                case 's':
+                    string = va_arg(ap, char *);
+                    puts((unsigned char *) string);
+                    break;
+                case 'd':
+                    inte = va_arg(ap, int);
+                    putint(inte);
+                    break;
+                case 'u':
+                    unsi = va_arg(ap, unsigned int);
+                    putint(unsi);
+                    break;
+                case 'x':
+                    hex = va_arg(ap, int);
+                    puthex(hex);
+                    break;
+                default:
+                    putch(str[i]);
+            }
+            i += 1;
+        }
+        else
+        {
+            putch(str[i]);
+            i += 1;
+        }
+
+    }
 }
 
 /* Sets our text-mode VGA pointer, then clears the screen for us */

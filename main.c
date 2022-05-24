@@ -50,7 +50,6 @@ void main()
     /* ...and leave this loop in. for(;;);*/
 
     init_video();
-
-    puts((unsigned char *) "Hello Kernel World !\n");
+    printf((unsigned char *) "Hello %u Kernel World", 50000);
     for (;;);
 }
