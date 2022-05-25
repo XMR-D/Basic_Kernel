@@ -21,4 +21,9 @@ extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 extern void printf(unsigned char *str, ...);
 extern void init_video();
 
+//GDT structs and functions
+extern void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran);
+
+void gdt_install();
+
 #endif

@@ -49,7 +49,8 @@ void main()
 
     /* ...and leave this loop in. for(;;);*/
 
+    gdt_install();
     init_video();
-    printf((unsigned char *) "Hello %u Kernel World", 50000);
+    printf((unsigned char *) "Hello Kernel World !");
     for (;;);
 }
