@@ -1,8 +1,6 @@
 #include "system.h"
 
-/* Defines a GDT entry. We say packed, because it prevents the
-*  compiler from doing things that it thinks is best: Prevent
-*  compiler "optimization" by packing */
+/* Defines a GDT entry.*/
 
 struct gdt_entry
 {
@@ -15,21 +13,18 @@ struct gdt_entry
 } __attribute__((packed));
 
 
-/* Special pointer which includes the limit: The max bytes
-*  taken up by the GDT, minus 1. Again, this NEEDS to be packed */
-
+/* Special pointer which includes the limit:*/
 struct gdt_ptr
 {
     unsigned short limit;
     unsigned int base;
 } __attribute__((packed));
 
-/* Our GDT, with 3 entries, and finally our special GDT pointer */
-struct gdt_entry gdt[3];
+/* Our GDT, with 5 entries, and finally our special GDT pointer */
+struct gdt_entry gdt[5];
 struct gdt_ptr gp;
 
-/* This will be a function in start.asm. We use this to properly
-*  reload the new segment registers */
+/* function to reload the GDT our Gdt*/
 extern void gdt_flush();
 
 
@@ -55,14 +50,21 @@ void gdt_install()
     gp.limit = (sizeof(struct gdt_entry) * 3) - 1;
     gp.base = (unsigned int) &gdt;
 
-    /* Our NULL descriptor */
+    /* NULL descriptor */
     gdt_set_gate(0, 0, 0, 0, 0);
 
-    /* Code Segment entry */
-    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
+    /* Kernel Code Segment entry */
+    gdt_set_gate(1, 0, 0xFFFFF, 0x9A, 0xCF);
 
-    /*Data Segment entry.*/
-    gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
+    /*Kernel Data Segment entry.*/
+    gdt_set_gate(2, 0, 0xFFFFF, 0x92, 0xCF);
+
+    /*Userland Code Segment entry.*/
+    gdt_set_gate(3, 0, 0xFFFFF, 0xFA, 0xCF);
+
+    /*Userland Data Segment entry*/
+    gdt_set_gate(4, 0, 0xFFFFF, 0XF2, 0xCF);
+
 
     /* Flush out the old GDT*/
     gdt_flush();
