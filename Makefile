@@ -66,7 +66,7 @@ $(KERNEL).iso: $(KERNEL).elf
 	mkdir -p iso/boot/grub
 	touch iso/boot/grub/grub.cfg
 	cp $< iso/boot/$<
-	@echo 'menuentry "Le kernel pa tro genti" {'  			>> iso/boot/grub/grub.cfg
+	@echo 'menuentry "Basic_kernel" {'  			>> iso/boot/grub/grub.cfg
 	@echo '  multiboot /boot/$<'          		>> iso/boot/grub/grub.cfg
 	@echo '}'                                  	>> iso/boot/grub/grub.cfg
 	@echo "---------------------------"
