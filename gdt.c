@@ -1,23 +1,24 @@
 #include "system.h"
+#include <stdint.h>
 
 /* Defines a GDT entry.*/
 
 struct gdt_entry
 {
-    unsigned short limit_low;
-    unsigned short base_low;
-    unsigned char base_middle;
-    unsigned char access;
-    unsigned char granularity;
-    unsigned char base_high;
+    uint16_t limit_low : 16;
+    uint16_t base_low : 16;
+    uint8_t base_middle : 8;
+    uint8_t access : 8;
+    uint8_t granularity : 8;
+    uint8_t base_high : 8;
 } __attribute__((packed));
 
 
 /* Special pointer which includes the limit:*/
 struct gdt_ptr
 {
-    unsigned short limit;
-    unsigned int base;
+    uint16_t limit : 16;
+    uint32_t base : 32;
 } __attribute__((packed));
 
 /* Our GDT, with 5 entries, and finally our special GDT pointer */
