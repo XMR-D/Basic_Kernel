@@ -50,7 +50,8 @@ void main()
     /* ...and leave this loop in. for(;;);*/
 
     gdt_install();
+    idt_init();
     init_video();
-    printf((unsigned char *) "Hello Kernel World !");
+    printf((unsigned char *) "Kernel Initialized!");
     for (;;);
 }
