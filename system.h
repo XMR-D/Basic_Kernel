@@ -24,13 +24,11 @@ extern void init_video();
 
 //GDT structs and functions
 extern void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran);
-
 extern void gdt_install();
 
 //IDT structs and functions
 
 extern void idt_set_descriptor(uint32_t baseadress, uint16_t segment, uint8_t flags, uint8_t index);
-
 extern void idt_init();
 
 #endif
