@@ -1,5 +1,4 @@
 #include "system.h"
-#include <stdint.h>
 
 /* Defines a GDT entry.*/
 
@@ -28,7 +27,6 @@ struct gdt_ptr gp;
 /* function to reload the GDT our Gdt*/
 extern void gdt_flush();
 
-
 void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)
 {
     /* Setup the descriptor base address */
@@ -48,7 +46,7 @@ void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned cha
 void gdt_install()
 {
     /* Setup the GDT pointer and limit */
-    gp.limit = (sizeof(struct gdt_entry) * 3) - 1;
+    gp.limit = (sizeof(struct gdt_entry) * 5) - 1;
     gp.base = (unsigned int) &gdt;
 
     /* NULL descriptor */

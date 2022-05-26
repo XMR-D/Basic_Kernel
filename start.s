@@ -24,23 +24,26 @@ stublet:
     jmp $
 
 
-; //TODO GDT here
-
 global gdt_flush
 extern gp
 gdt_flush:
     lgdt [gp]
-    mov ax, 0x10      ; 0x10 offset in GDT to data segment (DS)
+    mov ax, 0x10      ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
-    jmp 0x08:flush2  ; 0x08 offset in GDT to code segment (CS)
+    jmp 0x08:flush2  ; 0x08 offset in GDT to kernel  code segment (CS)
 flush2:
-    ret              ;back to C
+    ret
 
-; //TODO ISR here
+global idt_load
+extern pointer
+idt_load:
+    lidt [pointer]
+    ret
+
 
 ; allocate 8kB for .bss section used to stored the stack
 [section .bss]
