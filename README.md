@@ -3,7 +3,7 @@ Welcome to my basic kernel project,
 Contact : guillaume.wantiez@epita.fr.
 
 Currently working on : Basic linux x86 kernel recoding / (32-bit i386).
-  (Advancement : currently fixing bugs / figuring out why grub don't load the kernel). 
+  (Advancement : Finished adding GDT and IDT, going on exceptions and interrupts handling). 
   
   
 Other projects : 
