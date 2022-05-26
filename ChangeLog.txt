@@ -18,13 +18,19 @@ week 2 :  Kernel base code session, Understanding basic architecture .
 		missing").
 
 		-- found that multiboot header constants (magic, flags, checksum)
-		were not properly initialized in start.s, and starti.s had wrong
+		were not properly initialized in start.s, and start.s had wrong
 		extension (.asm instead of .s).
 
 		-- Having a "Hello Kernel World !" printed and working, i will now
 		rework on the understanding of the actual architecture. (why theses
 		work and how they work together)
 
-week 3 : GDT implementation
+week 3 : GDT and IDT implementation
 (29/05/22 - 05/06/22)
-		--
+		-- followed Bran's kernel programming tuto but now i will try using
+		intel documentation only.
+
+		-- GDT was code using the tutoriel IDT will be code by myself.
+
+		-- IDT Is actually the table used to handle interrupts signals and
+		misc. the structure is really close to the GDT. 
