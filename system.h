@@ -70,4 +70,10 @@ extern void err32();
 
 extern void Isr_handler(uint32_t nb);
 
+extern struct {
+    uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax; //pusha
+    uint32_t nberr, err_code; //interrupt code
+    uint32_t gs, fs, es, ds, ss; //push ds,es,fs,gs,ss
+}cpu;
+
 #endif

@@ -44,6 +44,30 @@ idt_load:
     lidt [pointer]
     ret
 
+isr_handler:
+    ; Save context
+    pusha
+    push ds
+    push es
+    push fs
+    push gs
+    puch ss
+
+    ; call the C handling function
+    extern Isr_handling
+    call Isr_handling
+
+    ; Restore context
+    pop ss
+    pop gs
+    pop fs
+    pop es
+    pop ds
+    popa
+    iret
+
+
+
 
 ; allocate 8kB for .bss section used to stored the stack
 [section .bss]
