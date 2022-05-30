@@ -52,6 +52,7 @@ void main()
     gdt_install();
     idt_init();
     init_video();
-    printf((unsigned char *) "Kernel Initialized!");
+    putch(1);
+    putch(1/0);
     for (;;);
 }

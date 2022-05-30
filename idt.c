@@ -7,6 +7,8 @@ struct idt_p{
 
 struct idt_p pointer;
 
+extern void isr_handler();
+
 struct idt_descriptor{
     uint16_t lowoffset: 16;
     uint16_t segselector: 16;
@@ -34,6 +36,7 @@ void idt_init()
     pointer.limit = (sizeof(struct idt_descriptor) * 256) - 1;
 
     //idt_set_descriptor calls
+    idt_set_descriptor((uint32_t) isr_handler, 0x10, 0x8E, 0);
 
 
     memset(&idt, 0, sizeof(struct idt_descriptor));
