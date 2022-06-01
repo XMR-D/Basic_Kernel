@@ -39,7 +39,7 @@ week 3 : GDT and IDT implementation
 		-- I finished coding the first Isr "divide by 0 exception" but it
 		close my kernel as soon as i open it. after searching for 2 days
 		i found that a 0 was placed after a ret instruction, However it 
-		didn't fixed the problem
+		didn't fixed the problem.
 
 		- I think the problem come from my call of isr_set_descriptor, perhaps
-		the base adress is wrong.
+		the base adress is wrong. i really need coffee.
