@@ -22,7 +22,7 @@ week 2 :  Kernel base code session, Understanding basic architecture .
 		extension (.asm instead of .s).
 
 		-- Having a "Hello Kernel World !" printed and working, i will now
-		rework on the understanding of the actual architecture. (why theses
+		rework on the understanding of the actual architecture. (why these
 		work and how they work together)
 
 week 3 : GDT and IDT implementation
@@ -30,7 +30,16 @@ week 3 : GDT and IDT implementation
 		-- followed Bran's kernel programming tuto but now i will try using
 		intel documentation only.
 
-		-- GDT was code using the tutoriel IDT will be code by myself.
+		-- GDT was implemented using the bran's kernel tutoriel
+		the IDT will be implemented by myself.
 
-		-- IDT Is actually the table used to handle interrupts signals and
-		misc. the structure is really close to the GDT. 
+		-- IDT is actually the table used to handle interrupts signals and
+		misc. the structure is really close to the GDT.
+
+		-- I finished coding the first Isr "divide by 0 exception" but it
+		close my kernel as soon as i open it. after searching for 2 days
+		i found that a 0 was placed after a ret instruction, However it 
+		didn't fixed the problem
+
+		- I think the problem come from my call of isr_set_descriptor, perhaps
+		the base adress is wrong.
