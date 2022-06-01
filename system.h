@@ -49,9 +49,9 @@ extern uint32_t err12();
 extern uint32_t err13();
 extern uint32_t err14();
 extern uint32_t reserved(); //Unknown Interrupt exception //
-extern uint32_t err16(); //Coprocessor Fault exception //
-extern uint32_t err17(); //Alignment Check exception   //
-extern uint32_t err18(); //machine check exception     //
+extern uint32_t err16();    //Coprocessor Fault exception //
+extern uint32_t err17();    //Alignment Check exception   //
+extern uint32_t err18();    //machine check exception     //
 
 
 

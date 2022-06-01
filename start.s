@@ -42,28 +42,32 @@ global idt_load
 extern pointer
 idt_load:
     lidt [pointer]
-    ret0
+    ret
 
 
+extern Isr_handling
 global isr_handler
-extern context
 isr_handler:
     ; Save context
     pusha
+    push gs
+    push fs
     push ds
     push es
-    push fs
-    push gs
+
+    mov ax, 0x10
+    mov ds, ax
+    mov es, ax
+    cld
 
     ; call the C handling function
-    extern Isr_handling
     call Isr_handling
 
     ; Restore context
-    pop gs
-    pop fs
     pop es
     pop ds
+    pop fs
+    pop gs
     popa
     iret
 
