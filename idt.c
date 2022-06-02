@@ -41,7 +41,7 @@ void idt_init()
     pointer.base = (unsigned int) &idt;
     pointer.limit = (sizeof(struct idt_descriptor) * 256) - 1;
 
-    idt_set_descriptor(0x0001 , 0x07A3, 0x08, 0b1110, 0, 1, 0);
+    idt_set_descriptor(0x0001 , 0x07B3, 0x08, 0b1110, 0, 1, 0);
 
 
     memset(&idt, 0, sizeof(struct idt_descriptor));
