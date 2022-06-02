@@ -1,7 +1,7 @@
 #ifndef __SYSTEM_H
 #define __SYSTEM_H
 #include <stdint.h>
-
+//type and misc definitions
 typedef int size_t;
 
 //main fncts
@@ -28,30 +28,31 @@ extern void gdt_install();
 
 //IDT structs and functions
 
-extern void idt_set_descriptor(uint32_t baseadress, uint16_t segment, uint8_t flags, uint8_t index);
+extern void idt_set_descriptor(uint16_t highoffset, uint16_t lowoffset, uint16_t segment, uint8_t gatetype, uint8_t dpl, uint8_t p, uint8_t index);
+
 extern void idt_init();
 
 //ISRS structs and functions
 
-extern uint32_t err0();
-extern uint32_t err1();
-extern uint32_t err2();
-extern uint32_t err3();
-extern uint32_t err4();
-extern uint32_t err5();
-extern uint32_t err6();
-extern uint32_t err7();
-extern uint32_t err8();
-extern uint32_t err9();
-extern uint32_t err10();
-extern uint32_t err11();
-extern uint32_t err12();
-extern uint32_t err13();
-extern uint32_t err14();
-extern uint32_t reserved(); //Unknown Interrupt exception //
-extern uint32_t err16();    //Coprocessor Fault exception //
-extern uint32_t err17();    //Alignment Check exception   //
-extern uint32_t err18();    //machine check exception     //
+extern void err0();
+extern void err1();
+extern void err2();
+extern void err3();
+extern void err4();
+extern void err5();
+extern void err6();
+extern void err7();
+extern void err8();
+extern void err9();
+extern void err10();
+extern void err11();
+extern void err12();
+extern void err13();
+extern void err14();
+extern void reserved(); //Unknown Interrupt exception //
+extern void err16();    //Coprocessor Fault exception //
+extern void err17();    //Alignment Check exception   //
+extern void err18();    //machine check exception     //
 
 
 

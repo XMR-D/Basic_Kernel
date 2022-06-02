@@ -65,6 +65,6 @@ void main()
     idt_init();
     init_video();
     puts((unsigned char *) "Hello kernel world");
-    putch(1/0);
+    asm volatile("movw $1, %eax; div %eax, %eax");
     for (;;);
 }

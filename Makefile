@@ -6,7 +6,7 @@ RAMDISK = userland
 OPTI = -Ofast
 
 CC = gcc
-CFLAGS = -m32 -Wall -Wextra $(OPTI) -I$(KERNEL_DIR) -std=gnu17
+CFLAGS = -O0 -g -m32 -Wall -Wextra $(OPTI) -I$(KERNEL_DIR) -std=gnu17
 
 ASMPARAM = -f elf32 -F dwarf
 
@@ -45,7 +45,7 @@ OBJ    += $(SFILES:%.s=$(BUILD)/%.o)
 OBJ    += $(CFILES:%.c=$(BUILD)/%.o)
 
 QEMU = qemu-system-i386
-QEMU_PARAMS_NODEBUG = -no-reboot -vga std -D ./log.txt -d int,guest_errors -m 512M -boot d -M q35  -serial mon:stdio -m 1G -smp $(CORE_NUM) -enable-kvm  -cpu kvm64,+vmx -cdrom
+QEMU_PARAMS_NODEBUG = -no-reboot -vga std -D ./log.txt -d int,guest_errors -m 512M -boot d -M q35  -serial mon:stdio -m 1G -smp $(CORE_NUM) -cdrom
 QEMU_PARAMS_DEBUG = -S -gdb tcp::9000
 
 $(shell mkdir -p $(addprefix $(BUILD)/,$(SRCDIRS)))
