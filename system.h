@@ -23,7 +23,7 @@ extern void printf(unsigned char *str, ...);
 extern void init_video();
 
 //GDT structs and functions
-extern void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran);
+extern void gdt_set_gate(int num, uint16_t lowlimit, uint8_t highlimit, uint16_t lowbase, uint8_t middlebase, uint16_t highbase, uint8_t a, uint8_t rw, uint8_t dc, uint8_t e, uint8_t s, uint8_t dpl, uint8_t p, uint8_t g, uint8_t db, uint8_t l);
 extern void gdt_install();
 
 //IDT structs and functions
