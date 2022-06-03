@@ -40,10 +40,8 @@ void idt_init()
 {
     pointer.offset = (unsigned int) &idt;
     pointer.size = (sizeof(struct idt_descriptor) * 256) - 1;
-
     memset(&idt, 0, sizeof(struct idt_descriptor));
-
-    idt_set_descriptor(0x0001 , 0x07b3, 0x08, 0b1111, 0, 1, 0);
+    idt_set_descriptor(0x0001 , 0x07B3, 0x08, 0b1110, 0, 1, 0);
 
     idt_load();
 
