@@ -20,11 +20,11 @@ struct idt_descriptor{
     uint16_t highoffset: 16;
 }__attribute__((packed));
 
-struct idt_descriptor idt[256];
+static struct idt_descriptor idt[256];
 
 extern void idt_load();
 
-void idt_set_descriptor(uint16_t highoffset, uint16_t lowoffset, uint16_t segment, uint8_t gatetype, uint8_t dpl, uint8_t p, uint8_t index)
+void idt_set_descriptor(uint32_t offset, uint16_t segment, uint8_t gatetype, uint8_t dpl, uint8_t p, uint8_t index)
 {
     idt[index].notused = 0;
     idt[index].always0 = 0;
@@ -32,8 +32,8 @@ void idt_set_descriptor(uint16_t highoffset, uint16_t lowoffset, uint16_t segmen
     idt[index].DPL = dpl;
     idt[index].P = p;
     idt[index].segselector = segment;
-    idt[index].lowoffset = lowoffset;
-    idt[index].highoffset = highoffset;
+    idt[index].lowoffset = (offset & 0xFFFF);
+    idt[index].highoffset = (offset >> 16) & 0xFFFF;
 }
 
 void idt_init()
@@ -41,7 +41,8 @@ void idt_init()
     pointer.offset = (unsigned int) &idt;
     pointer.size = (sizeof(struct idt_descriptor) * 256) - 1;
     memset(&idt, 0, sizeof(struct idt_descriptor));
-    idt_set_descriptor(0x0001 , 0x07B3, 0x08, 0b1110, 0, 1, 0);
+
+    idt_set_descriptor((uint32_t) err0, 0x08, 0b1110, 0, 1, 0);
 
     idt_load();
 
