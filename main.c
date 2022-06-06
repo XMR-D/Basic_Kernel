@@ -62,9 +62,8 @@ void main()
     /* ...and leave this loop in. for(;;);*/
 
     gdt_install();
-    idt_init();
     init_video();
-    puts((unsigned char *) "Hello kernel world");
+    puts((unsigned char *) "Hello kernel world\n");
     asm volatile("movw $1, %eax; div %eax, %eax");
     for (;;);
 }

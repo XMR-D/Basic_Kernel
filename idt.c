@@ -1,15 +1,15 @@
 #include "system.h"
 
-struct idtr_p{
+struct idt_descriptor{
     uint32_t offset: 32;
     uint16_t size: 16;
 }__attribute__((packed));
 
-struct idtr_p pointer;
+struct idt_descriptor pointer;
 
 extern void isr_handler();
 
-struct idt_descriptor{
+struct isr_descriptor{
     uint16_t lowoffset: 16;
     uint16_t segselector: 16;
     uint8_t notused : 8;
@@ -20,7 +20,7 @@ struct idt_descriptor{
     uint16_t highoffset: 16;
 }__attribute__((packed));
 
-static struct idt_descriptor idt[256];
+static struct isr_descriptor idt[256];
 
 extern void idt_load();
 
@@ -39,10 +39,11 @@ void idt_set_descriptor(uint32_t offset, uint16_t segment, uint8_t gatetype, uin
 void idt_init()
 {
     pointer.offset = (unsigned int) &idt;
-    pointer.size = (sizeof(struct idt_descriptor) * 256) - 1;
-    memset(&idt, 0, sizeof(struct idt_descriptor));
+    pointer.size = (sizeof(struct isr_descriptor) * 256) - 1;
 
-    idt_set_descriptor((uint32_t) err0, 0x08, 0b1110, 0, 1, 0);
+    memset(&idt, 0, sizeof(struct isr_descriptor)*255);
+
+    //idt_set_descriptor((uint32_t) err0, 0x08, 0b1110, 0, 1, 0);
 
     idt_load();
 
