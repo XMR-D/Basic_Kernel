@@ -3,7 +3,8 @@ Welcome to my basic kernel project,
 Contact : guillaume.wantiez@epita.fr.
 
 Currently working on : Basic linux x86 kernel recoding / (32-bit i386).
-  (Advancement : found that the idt is not well initialized, offset = 0/limit = -1). 
+  (Advancement : fixed the idt/gdt, now the proco throw a invalid opcode exception after
+                      a division by 0 exception that i test). 
   
   
 Other projects : 
