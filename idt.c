@@ -18,18 +18,19 @@ struct idt_gate_descriptor{
 
 struct idtr idtpointer;
 extern void idt_load();
+extern void isr_handler();
 static struct idt_gate_descriptor idt[256];
 
-void idt_set_gate(uint8_t num, uint16_t l_o, uint16_t c_s, uint8_t g_t, uint8_t dpl, uint8_t p, uint8_t h_o)
+void idt_set_gate(uint8_t num, uint32_t o, uint16_t c_s, uint8_t g_t, uint8_t dpl, uint8_t p)
 {
-    idt[num].lowoffset = l_o;
+    idt[num].lowoffset = (o & 0xFFFF);
     idt[num].codeselect = c_s;
     idt[num].reserved = 0;
     idt[num].gatetype = g_t;
     idt[num].always0 = 0;
     idt[num].dpl = dpl;
     idt[num].p = p;
-    idt[num].highoffset = h_o;
+    idt[num].highoffset = (o >> 16) & 0xFFFF;
 
 }
 
@@ -37,7 +38,7 @@ void idt_format()
 {
     for(int i = 0; i <= 255; i++)
     {
-        idt_set_gate(i, 0, 0, 0, 0, 0, 0x0);
+        idt_set_gate(i, 0x0, 0, 0, 0, 0);
     }
 }
 
@@ -47,6 +48,6 @@ void idt_init()
     idtpointer.idt_adress = (unsigned int) &idt;
 
     idt_format();
-    idt_set_gate(0, 0x0793, 0x8, 0b1111, 0, 1, 0x0001);
+    idt_set_gate(0, 0x10794, 0x8, 0b1111, 0, 1);
     idt_load();
 }

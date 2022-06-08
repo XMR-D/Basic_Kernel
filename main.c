@@ -64,9 +64,12 @@ void main()
     gdt_install();
     init_video();
     idt_init();
-    //asm volatile("movw $1, %eax; div %eax, %eax");
+
     puts((unsigned char *) "Hello kernel world\n");
 
-    asm volatile("movw $1, %eax; div %eax, %eax");
+    //division by 0 test : successful !
+    //asm volatile("movw $1, %eax; div %eax, %eax");
+    
+
     for (;;);
 }

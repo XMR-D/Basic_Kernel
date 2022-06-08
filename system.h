@@ -28,7 +28,7 @@ extern void gdt_install();
 
 //IDT structs and functions
 
-extern void idt_set_gate(uint8_t num, uint16_t l_o, uint16_t c_s, uint8_t g_t, uint8_t dpl, uint8_t p, uint8_t h_o);
+extern void idt_set_gate(uint8_t num, uint32_t o, uint16_t c_s, uint8_t g_t, uint8_t dpl, uint8_t p);
 
 extern void idt_init();
 
