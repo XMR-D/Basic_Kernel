@@ -39,9 +39,9 @@ flush2:
     ret
 
 global idt_load
-extern pointer
+extern idtpointer
 idt_load:
-    lidt [pointer]
+    lidt [idtpointer]
     ret
 
 

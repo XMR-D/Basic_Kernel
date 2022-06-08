@@ -13,8 +13,8 @@ struct cpu {
 void err0(volatile struct cpu * context) //divide by 0 exception
 {
     puts((unsigned char *) "Exception : Divide by zero.");
-    asm("cli");
-    asm("hlt");
+    asm volatile("cli");
+    asm volatile("hlt");
 }
 
 void err1(volatile struct cpu * context) //Debug exception
