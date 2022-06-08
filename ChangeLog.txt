@@ -41,5 +41,24 @@ week 3 : GDT and IDT implementation
 		i found that a 0 was placed after a ret instruction, However it 
 		didn't fixed the problem.
 
-		- I think the problem come from my call of isr_set_descriptor, perhaps
+		-- I think the problem come from my call of isr_set_descriptor, perhaps
 		the base adress is wrong. i really need coffee.
+
+		-- I will use bochs to debug my idt and my gdt, but figuring out how
+		to use it take me  2 days.
+
+		-- Ok, i finally fixed the idt by rewritting all the program, i think
+		the error was in the identifiers of variables and im starting getting
+		good at handling bochs
+
+week 4: ISR writing and IRQs mapping
+(05/06/22 -07/06/22)
+		-- Ok so i pre-code the interrupt 0 of intel 32-bit documentation
+		and i tried to test it, of course with a broken idt it was hard to
+		test it, now im facing a new issue (invalid opcode 0x6) thrown by an
+		assembly line, a lock push on adress 0008:0x3, don't know why.
+		the procco do the following : throwing an exception due to a division
+		by 0 (from my test so it's normal), and then throw an invalid opcode
+		which is not normal.
+
+
