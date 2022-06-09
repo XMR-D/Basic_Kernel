@@ -65,10 +65,10 @@ void main()
     init_video();
     idt_init();
 
-    puts((unsigned char *) "Hello kernel world\n");
+    puts((unsigned char *) "Hello kernel world!\n");
 
     //division by 0 test : successful !
-    //asm volatile("movw $1, %eax; div %eax, %eax");
+    asm volatile("movw $1, %eax; div %eax, %eax");
     
 
     for (;;);

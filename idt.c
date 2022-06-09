@@ -38,7 +38,7 @@ void idt_format()
 {
     for(int i = 0; i <= 255; i++)
     {
-        idt_set_gate(i, 0x0, 0, 0, 0, 0);
+        idt_set_gate(i, 0, 0, 0, 0, 0);
     }
 }
 
@@ -48,6 +48,31 @@ void idt_init()
     idtpointer.idt_adress = (unsigned int) &idt;
 
     idt_format();
-    idt_set_gate(0, 0x10794, 0x8, 0b1111, 0, 1);
+
+    //Basics ones
+    idt_set_gate(0, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(1, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(2, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+    idt_set_gate(3, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(4, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(5, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(6, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(7, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(8, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+    idt_set_gate(9, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(10, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(11, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(12, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(13, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(14, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(15, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(16, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(17, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    idt_set_gate(18, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+    idt_set_gate(19, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+
+    //Others
+
+
     idt_load();
 }

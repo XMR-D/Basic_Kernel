@@ -45,8 +45,9 @@ idt_load:
     ret
 
 
-extern Isr_handling
+
 global isr_handler
+extern Basic_isr_handling
 isr_handler:
     ; Save context
     pusha
@@ -55,13 +56,8 @@ isr_handler:
     push ds
     push es
 
-    mov ax, 0x10
-    mov ds, ax
-    mov es, ax
-    cld
-
     ; call the C handling function
-    call Isr_handling
+    call Basic_isr_handling
 
     ; Restore context
     pop es

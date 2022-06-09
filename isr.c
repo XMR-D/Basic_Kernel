@@ -10,111 +10,151 @@ struct cpu {
 
 // define all ISR here!!
 
-void err0(volatile struct cpu * context) //divide by 0 exception
+void err0() //divide by 0 exceptioni (FAULT)
 {
     puts((unsigned char *) "Exception : Division by zero.");
     asm volatile("cli");
     asm volatile("hlt");
 }
 
-void err1(volatile struct cpu * context) //Debug exception
+void err1() //Debug exception (FAULT/TRAP)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
+    puts((unsigned char *) "Exception : Debug exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
 }
 
-void err2(volatile struct cpu * context) //NMI Interrupt
+void err2() //NMI Interrupt (INTERRUPT)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
+    puts((unsigned char *) "Exception : Non maskable interrupt.");
+    asm volatile("cli");
+    asm volatile("hlt");
 }
 
-void err3(volatile struct cpu * context) //Breakpoint exception
+void err3() //Breakpoint exception (TRAP)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
+    puts((unsigned char *) "Breakpoint.");
+    asm volatile("cli");
+    asm volatile("hlt");
 }
 
-void err4(volatile struct cpu * context) //Overflow exception
+void err4() //Overflow exception (TRAP)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
+    puts((unsigned char *) "Exception : Overflow exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
 }
 
-void err5(volatile struct cpu * context) //Bound range exceeded exception
+void err5() //Bound range exceeded exception (FAULT)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err6(volatile struct cpu * context) //Invalid Opcode exception
-{
-    puts((unsigned char *) "Error : Divide by 0.");
+    puts((unsigned char *) "Exception : Bound range exceeded.");
+    asm volatile("cli");
+    asm volatile("hlt");
 }
 
-void err7(volatile struct cpu * context) //Math Coprocessor not available exception
+void err6() //Invalid Opcode exception (FAULT)
 {
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err8(volatile struct cpu * context) //Double fault exception
-{
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err9(volatile struct cpu * context) //Coprocessor segment overrun exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err10(volatile struct cpu * context) //Invalid task-state segment exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err11(volatile struct cpu * context) //Segment not present exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err12(volatile struct cpu * context) //Stack-segment fault exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err13(volatile struct cpu * context) //General protection fault exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err14(volatile struct cpu * context) //Page fault
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void reserved(volatile struct cpu * context) //INTEL RESERVED
-{
-    //TODO : Do nothing reserved isr
-}
-void err16(volatile struct cpu * context) //FPU Floating-point error
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err17(volatile struct cpu * context) //Aligment Check exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err18(volatile struct cpu * context) //Machine Check exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0.");
-}
-void err19(volatile struct cpu * context) //SIMD Floating-point exception
-{
-    //TODO
-    puts((unsigned char *) "Error : Divide by 0."); 
+    puts((unsigned char *) "Exception : Invalid Opcode.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
 }
 
-typedef void (*Handler)(volatile struct cpu * context);
+void err7() //Math Coprocessor not available exception (FAULT)
+{
+    puts((unsigned char *) "Exception : Math Coprocessor not available.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err8() //Double fault exception (ABORT)
+{
+    puts((unsigned char *) "Exception : Double Fault.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err9() //Coprocessor segment overrun exception (FAULT)
+{
+    puts((unsigned char *) "Exception : Coprocessor segment overrun.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err10() //Invalid task-state segment exception (FAULT)
+{
+    puts((unsigned char *) "Exception : Invalid TSS (task-state segment).");
+    asm volatile("cli");
+    asm volatile("hlt");
+}
+void err11() //Segment not present exception (FAULT)
+{
+    puts((unsigned char *) "Exception : Missing segment.");
+    asm volatile("cli");
+    asm volatile("hlt");
+}
+void err12() //Stack-segment fault exception (FAULT)
+{
+    puts((unsigned char *) "Exception : Stack-segment fault exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err13() //General protection fault exception (FAULT)
+{
+    puts((unsigned char *) "Exception : General protection fault.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err14() //Page fault (FAULT)
+{
+    puts((unsigned char *) "Exception : Page fault.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void reserved() //INTEL RESERVED
+{
+    puts((unsigned char *) "RESERVED.");
+    asm volatile("cli");
+    asm volatile("hlt");
+}
+void err16() //FPU Floating-point error (FAULT)
+{
+    puts((unsigned char *) "Exception: Floating-point Error.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err17() //Aligment Check exception (FAULT)
+{
+    puts((unsigned char *) "Exception : ALigment Check exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err18() //Machine Check exception (ABORT)
+{
+    puts((unsigned char *) "Exception : Machine Check exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+void err19() //SIMD Floating-point exception (FAULT)
+{
+    puts((unsigned char *) "Exception : SIMD Floating-point exception.");
+    asm volatile("cli");
+    asm volatile("hlt");
+
+}
+
+typedef void (*Handler)(void);
 
 Handler jumptable[20] = {err0, err1, err2, err3, err4, err5, err6, err7, err8, err9, err10, err11, err12, err13, err14, reserved, err16, err17, err18, err19};
 
-void Isr_handling(volatile struct cpu context)
+void Basic_isr_handling(volatile struct cpu context)
 {
-    jumptable[context.nberr](&context);
-
+    jumptable[context.nberr]();
 }
