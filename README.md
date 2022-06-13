@@ -3,7 +3,7 @@ Welcome to my basic kernel project,
 Contact : guillaume.wantiez@epita.fr.
 
 Currently working on : Basic linux x86 kernel recoding / (32-bit i386).
-  (Advancement : fixed the idt/gdt, now implementing all basic interruptions.) 
+  (Advancement : IRQ Mapping done.) 
   
   
 Other projects : 
