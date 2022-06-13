@@ -10,7 +10,7 @@ week 1 : Starting reading and documentating on the Required Knowledge
 
 		-- starting Bran's tutoriel for kernel coding.
 
-week 2 :  Kernel base code session, Understanding basic architecture .
+week 2 :  Hello world kernel, Understanding basic architecture .
 (22/05/22 -- 29/05/22)
 		-- finished coding main.c start.s scrn.c link.ld.
 
@@ -51,8 +51,8 @@ week 3 : GDT and IDT implementation
 		the error was in the identifiers of variables and im starting getting
 		good at handling bochs
 
-week 4: ISR writing and IRQs mapping
-(05/06/22 -07/06/22)
+week 4: ISR writing / debbugging / starting IRQs mapping
+(05/06/22 - 12/06/22)
 		-- Ok so i pre-code the interrupt 0 of intel 32-bit documentation
 		and i tried to test it, of course with a broken idt it was hard to
 		test it, now im facing a new issue (invalid opcode 0x6) thrown by an
@@ -60,5 +60,19 @@ week 4: ISR writing and IRQs mapping
 		the procco do the following : throwing an exception due to a division
 		by 0 (from my test so it's normal), and then throw an invalid opcode
 		which is not normal.
+
+		-- I found the problem, while testing randoms modifs, i made the whole
+		thing work, by adding one to the adress it was fixed (no comment).
+		Now I have to remap the IRQs on the PIC but first i need to
+		understand how this kinds of signals works and communicate with the
+		CPU and the Hardware.
+
+		-- reading documentation on PIC and IRQs and creating irq.c.
+
+week 5: IRQS mapping the real thing
+(12/06/22 - 19/06/22)
+
+
+
 
 

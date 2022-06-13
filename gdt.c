@@ -37,7 +37,7 @@ struct gdt_ptr
 }__attribute__((packed));
 
 /* Our GDT, with 5 entries, and finally our special GDT pointer */
-struct gdt_entry gdt[5];
+struct gdt_entry gdt[6];
 struct gdt_ptr gp;
 
 /* function to reload the GDT our Gdt*/
@@ -72,7 +72,7 @@ void gdt_set_gate(int num, uint16_t lowlimit, uint8_t highlimit, uint16_t lowbas
 void gdt_install()
 {
     /* Setup the GDT pointer and limit */
-    gp.limit = (sizeof(struct gdt_entry) * 5) - 1;
+    gp.limit = (sizeof(struct gdt_entry) * 6) - 1;
     gp.base = (unsigned int) &gdt;
 
     /* NULL descriptor */

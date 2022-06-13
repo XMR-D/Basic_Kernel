@@ -9,8 +9,8 @@ extern void *memcpy(void *dest, const void *src, size_t count);
 extern void *memset(void *dest, char val, size_t count);
 extern unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count);
 extern size_t strlen(const char *str);
-extern unsigned char inportb (unsigned short _port);
-extern void outportb (unsigned short _port, unsigned char _data);
+extern unsigned char inb (unsigned short _port);
+extern void outb (unsigned short _port, unsigned char _data);
 
 //Screen and print functions
 extern void cls();
@@ -49,12 +49,29 @@ extern void err11();
 extern void err12();
 extern void err13();
 extern void err14();
-extern void reserved(); //Unknown Interrupt exception //
-extern void err16();    //Coprocessor Fault exception //
-extern void err17();    //Alignment Check exception   //
-extern void err18();    //machine check exception     //
+extern void reserved();
+extern void err16();
+extern void err17();
+extern void err18();
 
+//IRQs and function
 
+extern void irq0();
+extern void irq1();
+extern void irq2();
+extern void irq3();
+extern void irq4();
+extern void irq5();
+extern void irq6();
+extern void irq7();
+extern void irq8();
+extern void irq10();
+extern void irq11();
+extern void irq12();
+extern void irq13();
+extern void irq14();
+extern void irq15();
 
+extern void irq_init();
 
 #endif

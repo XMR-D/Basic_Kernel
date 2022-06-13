@@ -49,16 +49,20 @@ void idt_init()
 
     idt_format();
 
-    //Basics ones
+    // Basics ones
     idt_set_gate(0, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(1, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+
     idt_set_gate(2, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+
     idt_set_gate(3, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(4, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(5, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(6, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(7, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+
     idt_set_gate(8, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+
     idt_set_gate(9, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(10, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(11, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
@@ -68,8 +72,13 @@ void idt_init()
     idt_set_gate(15, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(16, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
     idt_set_gate(17, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+
     idt_set_gate(18, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
+
     idt_set_gate(19, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
+    
+
+    //TODO ADD EXCEPTION 20 TO 31
 
     //Others
 

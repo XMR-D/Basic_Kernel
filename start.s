@@ -56,6 +56,12 @@ isr_handler:
     push ds
     push es
 
+    mov ax, 0x10
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
     ; call the C handling function
     call Basic_isr_handling
 
@@ -67,8 +73,30 @@ isr_handler:
     popa
     iret
 
+global irq_handler
+extern Basic_irq_handling
+irq_handler:
+    pusha
+    push gs
+    push fs
+    push ds
+    push es
+    
+    mov ax, 0x10
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
 
+    call Basic_irq_handling
 
+    pop es
+    pop ds
+    pop fs
+    pop gs
+    popa
+    iret
 
 ; allocate 8kB for .bss section used to stored the stack
 [section .bss]
