@@ -71,7 +71,20 @@ week 4: ISR writing / debbugging / starting IRQs mapping
 
 week 5: IRQS mapping the real thing
 (12/06/22 - 19/06/22)
+		-- not as hard as i was thinking.
 
+week 6: Week off due to medical reasons
+(19/06/22 - 26/06/22)
+
+week 7: Physical memory management implementation
+(26/06/22 - 03/07/22)
+		-- Ok it's time to get back to work.
+
+		-- I need now to implement the pmm wich is the physical memory
+		managment part, i don't know how this work so i better be ready to
+		read documentations to know what i will do.
+
+		-- created pmm.c .
 
 
 

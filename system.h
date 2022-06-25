@@ -20,6 +20,7 @@ extern void putint(int nb);
 extern void puthex(int nb);
 extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 extern void printf(unsigned char *str, ...);
+extern void keyboard_handling();
 extern void init_video();
 
 //GDT structs and functions

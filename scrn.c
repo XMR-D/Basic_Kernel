@@ -263,6 +263,37 @@ void printf(unsigned char * str, ...)
     }
 }
 
+unsigned char keymap[89] =
+{
+   0, '1', '2', '3', '4', '5', '6', '7', '8',
+  '9', '0', '-', '=', '\b', '\t', 'q', 'w', 'e', 'r',
+  't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\n', 0, 'a',
+  's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
+  '\'', '`',   0, '\\', 'z', 'x', 'c', 'v', 'b', 'n',
+  'm', ',', '.', '/', 0, '*', 0,' ', 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, '-', 0, 0, 0, '+', 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0,
+
+};
+
+void keyboard_handling()
+{
+    uint32_t scancode = inb(0x60);
+
+    switch(scancode)
+    {
+    case 1:
+        puts((unsigned char *) "ESC");
+        break;
+    case 29:
+        puts((unsigned char *) "CTRL");
+        break;
+    default:
+        putch(keymap[scancode]);
+        break;
+    }
+}
 /* Sets our text-mode VGA pointer, then clears the screen for us */
 void init_video(void)
 {

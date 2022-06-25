@@ -16,7 +16,7 @@ void irq0()
 
 void irq1()
 {
-    printf((unsigned char *) "IRQ %u triggere\n", 1);
+    keyboard_handling();
 }
 
 void irq2()
@@ -95,7 +95,7 @@ Handler jumptableirq[16] = {irq0, irq1, irq2, irq3, irq4, irq5, irq6, irq7, irq8
 
 void Basic_irq_handling(volatile struct cpu context)
 {
-    jumptableirq[context.nberr]();
+    jumptableirq[context.nberr+32]();
 }
 
 void irq_init()
@@ -114,7 +114,7 @@ void irq_init()
 
     //idt_set_gates calls
 
-    idt_set_gate(32, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(32, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
     idt_set_gate(33, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
     idt_set_gate(34, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
     idt_set_gate(35, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
