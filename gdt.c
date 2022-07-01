@@ -72,7 +72,7 @@ void gdt_set_gate(int num, uint16_t lowlimit, uint8_t highlimit, uint16_t lowbas
 void gdt_install()
 {
     /* Setup the GDT pointer and limit */
-    gp.limit = (sizeof(struct gdt_entry) * 6) - 1;
+    gp.limit = (sizeof(struct gdt_entry) * 5) - 1;
     gp.base = (unsigned int) &gdt;
 
     /* NULL descriptor */

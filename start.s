@@ -49,13 +49,12 @@ idt_load:
 global isr_handler
 extern Basic_isr_handling
 isr_handler:
-    ; Save context
     pusha
     push gs
     push fs
     push ds
     push es
-
+    
     mov ax, 0x10
     mov ds, ax
     mov es, ax
@@ -81,7 +80,7 @@ irq_handler:
     push fs
     push ds
     push es
-    
+
     mov ax, 0x10
     mov ds, ax
     mov es, ax
@@ -96,6 +95,12 @@ irq_handler:
     pop fs
     pop gs
     popa
+
+    ;send EOI to unmask others hardware interrupts
+    mov al, 0x20
+    out 0x20, al
+    
+    sti
     iret
 
 ; allocate 8kB for .bss section used to stored the stack

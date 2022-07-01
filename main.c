@@ -44,13 +44,13 @@ size_t strlen(const char *str)
 unsigned char inb (unsigned short _port)
 {
     unsigned char rv;
-    asm volatile("inb %1, %0" : "=a" (rv) : "dN" (_port));
+    asm volatile("in %1, %0" : "=a" (rv) : "dN" (_port));
     return rv;
 }
 
 void outb (unsigned short _port, unsigned char _data)
 {
-    asm volatile("outb %1, %0" : : "dN" (_port), "a" (_data));
+    asm volatile("out %1, %0" : : "dN" (_port), "a" (_data));
 }
 
 
@@ -64,7 +64,8 @@ void main()
     gdt_install();
     init_video();
     idt_init();
-    irq_init();
+    irq_remap();
+    keyboard_handling();
 
     puts((unsigned char *) "Hello kernel world!\n");
 

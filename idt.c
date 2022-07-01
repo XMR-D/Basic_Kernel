@@ -19,6 +19,7 @@ struct idt_gate_descriptor{
 struct idtr idtpointer;
 extern void idt_load();
 extern void isr_handler();
+extern void irq_handler();
 static struct idt_gate_descriptor idt[256];
 
 void idt_set_gate(uint8_t num, uint32_t o, uint16_t c_s, uint8_t g_t, uint8_t dpl, uint8_t p)
@@ -76,12 +77,26 @@ void idt_init()
     idt_set_gate(18, (unsigned int) &(isr_handler)+1, 0x8, 0b1110, 0, 1);
 
     idt_set_gate(19, (unsigned int) &(isr_handler)+1, 0x8, 0b1111, 0, 1);
-    
 
-    //TODO ADD EXCEPTION 20 TO 31
 
-    //Others
+    //IRQs
+    idt_set_gate(32, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(33, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(34, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(35, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(36, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(37, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(38, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(39, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
 
+    idt_set_gate(40, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(41, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(42, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(43, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(44, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(45, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(46, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
+    idt_set_gate(47, (uint32_t) &irq_handler, 0x8, 0b1110, 0, 1);
 
     idt_load();
 }

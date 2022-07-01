@@ -98,37 +98,53 @@ void Basic_irq_handling(volatile struct cpu context)
     jumptableirq[context.nberr+32]();
 }
 
-void irq_init()
+
+
+void irq_remap()
 {
-    //remap
+    //save currents masks
+    uint8_t mask1 = inb(0x21);
+    uint8_t mask2 = inb(0xA1);
+
+    //ICW1 -- initialisation begin
     outb(0x20, 0x11);
+
+    outb(0x80, 0); //wait
+
     outb(0xA0, 0x11);
+
+    outb(0x80, 0); //wait
+
+    //ICW2 -- remap interrupt numbers
     outb(0x21, 0x20);
-    outb(0xA1, 0x28);
+
+    outb(0x80, 0); //wait
+
+    outb(0xA1 , 0x28);
+
+    outb(0x80, 0); //wait
+
+    //ICW3 -- make the two pic communicate
     outb(0x21, 0x04);
+
+    outb(0x80, 0); //wait
+
     outb(0xA1, 0x02);
+
+    outb(0x80, 0); //wait
+
+    //ICW4
     outb(0x21, 0x01);
+
+    outb(0x80, 0); //wait
+
     outb(0xA1, 0x01);
-    outb(0x21, 0x0);
-    outb(0xA1, 0x0);
 
-    //idt_set_gates calls
+    outb(0x80, 0); //wait
 
-    idt_set_gate(32, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(33, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(34, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(35, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(36, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(37, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(38, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(39, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
+    //Finished -- data register reinitialisation with saved masks
+    outb(0x21, mask1);
+    outb(0xA1, mask2);
 
-    idt_set_gate(40, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(41, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(42, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(43, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(44, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(45, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(46, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
-    idt_set_gate(47, (uint32_t) &irq_handler+1, 0x8, 0b1110, 0, 1);
+   //asm volatile("iret");
 }
