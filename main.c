@@ -53,8 +53,6 @@ void outb (unsigned short _port, unsigned char _data)
     asm volatile("out %1, %0" : : "dN" (_port), "a" (_data));
 }
 
-
-
 void main()
 {
     /* You would add commands after here */
@@ -64,13 +62,13 @@ void main()
     gdt_install();
     init_video();
     idt_init();
-    irq_remap();
-    keyboard_handling();
+    Irq_remap();
+    printf((unsigned char *) "Hello kernel world!\n");
+    asm volatile("movw $1, %eax; div %eax, %eax");
+    asm volatile("xchg %bx, %bx");
+    //asm volatile("int3");
+    //asm volatile("sti");
 
-    puts((unsigned char *) "Hello kernel world!\n");
-
-    //division by 0 test : successful !
-    //asm volatile("movw $1, %eax; div %eax, %eax");
 
     for (;;);
 }

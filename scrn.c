@@ -1,4 +1,5 @@
 #include "system.h"
+#include "driver.h"
 #include <stdarg.h>
 
 /* These define our textpointer, our background and foreground
@@ -194,10 +195,79 @@ void puthex(int nb)
         }
         nb /= 16;
     }
-    
     for(i = strlen(arr); i >= 0; i--)
+    {
         putch(arr[i]);
+    }
 }
+
+void sputs(unsigned char *text)
+{
+    int i;
+
+    for (i = 0; i < strlen((const char *)text); i++)
+    {
+        Send_char(text[i]);
+    }
+}
+
+void sputint(int nb)
+{
+    int count = 1;
+    int x = 0;
+    int saved = nb;
+    if(nb < 0)
+    {
+        Send_char('-');
+        nb *= -1;
+    }
+    while(nb > 0)
+    {
+        nb /= 10;
+        count *= 10;
+    }
+    while(count > 0)
+    {
+        if(x >= 1)
+        {
+            Send_char((saved/count) + 48);
+            saved -= (saved/count)*count;
+            count /= 10;
+        }
+        else
+        {
+            x += 1;
+            count /= 10;
+        }
+    }
+}
+
+void sputhex(int nb)
+{
+    int temp = 0;
+    char * arr = "00000000";
+    int i = 0;
+    while(nb > 0)
+    {
+        temp = nb % 16;
+        if(temp < 10)
+        {
+            arr[i] = temp+48;
+            i += 1;
+        }
+        else
+        {
+            arr[i] = temp+55;
+            i += 1;
+        }
+        nb /= 16;
+    }
+    for(i = strlen(arr); i >= 0; i--)
+    {
+        Send_char(arr[i]);
+    }
+}
+
 
 /* Sets the forecolor and backcolor that we will use */
 void settextcolor(unsigned char forecolor, unsigned char backcolor)
@@ -263,6 +333,61 @@ void printf(unsigned char * str, ...)
     }
 }
 
+void sprintf(unsigned char * str, ...)
+{
+    int i = 0;
+    va_list ap;
+
+    /* Set our constant for formatting string */
+    int chara;
+    char * string;
+    int inte;
+    int hex;
+    unsigned int unsi;
+    va_start(ap, str);
+
+
+    while(str[i] != '\0')
+    {
+        if(str[i] == '%')
+        {
+            i += 1;
+            switch(str[i])
+            {
+                case 'c':
+                    chara = va_arg(ap, int);
+                    Send_char(chara);
+                    break;
+                case 's':
+                    string = va_arg(ap, char *);
+                    sputs((unsigned char *) string);
+                    break;
+                case 'd':
+                    inte = va_arg(ap, int);
+                    sputint(inte);
+                    break;
+                case 'u':
+                    unsi = va_arg(ap, unsigned int);
+                    sputint(unsi);
+                    break;
+                case 'x':
+                    hex = va_arg(ap, int);
+                    sputhex(hex);
+                    break;
+                default:
+                    Send_char(str[i]);
+            }
+            i += 1;
+        }
+        else
+        {
+            Send_char(str[i]);
+            i += 1;
+        }
+
+    }
+}
+
 unsigned char keymap[89] =
 {
    0, '1', '2', '3', '4', '5', '6', '7', '8',
@@ -300,4 +425,3 @@ void init_video(void)
     textmemptr = (unsigned short *) 0xB8000;
     cls();
 }
-		

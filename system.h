@@ -12,14 +12,20 @@ extern size_t strlen(const char *str);
 extern unsigned char inb (unsigned short _port);
 extern void outb (unsigned short _port, unsigned char _data);
 
-//Screen and print functions
+//Screen and print functions and Driver series functions
+
+
 extern void cls();
 extern void putch(unsigned char c);
 extern void puts(unsigned char *str);
 extern void putint(int nb);
 extern void puthex(int nb);
+extern void sputint(int nb);
+extern void sputhex(int nb);
+extern void sputs(unsigned char *str);
 extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 extern void printf(unsigned char *str, ...);
+extern void sprintf(unsigned char *str, ...);
 extern void keyboard_handling();
 extern void init_video();
 
@@ -73,6 +79,6 @@ extern void irq13();
 extern void irq14();
 extern void irq15();
 
-extern void irq_remap();
+extern void Irq_remap();
 
 #endif

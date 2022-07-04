@@ -8,10 +8,40 @@ dd 0x1badb002
 dd 0x0
 dd -(0x1badb002 + 0x0)
 
+%macro IRQ_NOCODE 1
+[global irq%1]
+irq%1:
+    push 0
+    push %1
+    jmp irq_handler
+%endmacro
+
+%macro IRQ_CODE 1
+[global irq%1]
+irq%1:
+    push %1
+    jmp irq_handler
+%endmacro
+
+%macro ISR_NOCODE 1
+[global isr%1]
+isr%1:
+    push 0
+    push %1
+    jmp isr_handler
+%endmacro
+
+%macro ISR_CODE 1
+[global isr%1]
+isr%1:
+    push %1
+    jmp isr_handler
+%endmacro
+
 
 [section .text]
-[global start]
 
+global start
 start:
     mov esp, _sys_stack
     jmp stublet
@@ -28,13 +58,13 @@ global gdt_flush
 extern gp
 gdt_flush:
     lgdt [gp]
-    mov ax, 0x10      ; 0x10 offset in GDT to kernel data segment (DS)
+    mov ax, 0x10       ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
-    jmp 0x08:flush2  ; 0x08 offset in GDT to kernel code segment (CS)
+    jmp 0x08:flush2    ; 0x08 offset in GDT to kernel code segment (CS)
 flush2:
     ret
 
@@ -44,7 +74,26 @@ idt_load:
     lidt [idtpointer]
     ret
 
-
+ISR_NOCODE 0
+ISR_NOCODE 1
+ISR_NOCODE 2
+ISR_NOCODE 3
+ISR_NOCODE 4
+ISR_NOCODE 5
+ISR_NOCODE 6
+ISR_NOCODE 7
+ISR_CODE 8
+ISR_NOCODE 9
+ISR_CODE 10
+ISR_CODE 11
+ISR_CODE 12
+ISR_CODE 13
+ISR_CODE 14
+ISR_NOCODE 15
+ISR_NOCODE 16
+ISR_CODE 17
+ISR_NOCODE 18
+ISR_NOCODE 19
 
 global isr_handler
 extern Basic_isr_handling
@@ -54,15 +103,16 @@ isr_handler:
     push fs
     push ds
     push es
-    
-    mov ax, 0x10
+
+    ; call the C handling function
+    call Basic_isr_handling
+
+    mov ax, 0x10       ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
-    ; call the C handling function
-    call Basic_isr_handling
 
     ; Restore context
     pop es
@@ -70,6 +120,7 @@ isr_handler:
     pop fs
     pop gs
     popa
+    add esp, 8
     iret
 
 global irq_handler
@@ -81,26 +132,21 @@ irq_handler:
     push ds
     push es
 
-    mov ax, 0x10
+    call Basic_irq_handling
+
+    mov ax, 0x10       ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
 
-    call Basic_irq_handling
-
     pop es
     pop ds
     pop fs
     pop gs
     popa
-
-    ;send EOI to unmask others hardware interrupts
-    mov al, 0x20
-    out 0x20, al
-    
-    sti
+    add esp, 8
     iret
 
 ; allocate 8kB for .bss section used to stored the stack

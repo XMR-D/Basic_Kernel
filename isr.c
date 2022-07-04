@@ -1,11 +1,11 @@
 #include "system.h"
-
-struct cpu {
+struct cpu{
+    uint32_t err_code, nberr;
     uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax; //pusha
-    uint32_t eflags; //eflags register; 
-    uint32_t nberr, err_code; //interrupt code
-    uint32_t gs, fs, es, ds, ss; //push ds,es,fs,gs,ss
+    uint32_t eflags;
+    uint32_t gs, fs, es, ds, ss; //push ds,es,fs,gs,s
 };
+
 
 
 // define all ISR here!!
@@ -154,7 +154,28 @@ typedef void (*Handler)(void);
 
 Handler jumptable[20] = {err0, err1, err2, err3, err4, err5, err6, err7, err8, err9, err10, err11, err12, err13, err14, reserved, err16, err17, err18, err19};
 
+void Regs_log(volatile struct cpu c)
+{
+    sprintf((unsigned char *) "________Registers popa_______\n");
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "edi = %x\nesi = %x\nebp = %x\nesp = %x\nebx = %x\nedx = %x\n", c.edi, c.esi, c.ebp, c.esp, c.ebx, c.edx);
+    sprintf((unsigned char *) "ecx = %x\neax = %x\n", c.ecx, c.edx);
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "________Eflags value_________\n");
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "eflags = %x\n", c.eflags);
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "_______Interrupt code________\n");
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "error number = %x\nerror code = %x\n", c.nberr, c.err_code);
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "_______Regulars registers____\n");
+    sprintf((unsigned char *) "\n");
+    sprintf((unsigned char *) "gs = %x\nfs = %x\nes = %x\nds = %x\nes = %x\n", c.gs, c.fs, c.es, c.ds, c.es);
+}
+
 void Basic_isr_handling(volatile struct cpu context)
 {
+    Regs_log(context);
     jumptable[context.nberr]();
 }

@@ -95,56 +95,37 @@ Handler jumptableirq[16] = {irq0, irq1, irq2, irq3, irq4, irq5, irq6, irq7, irq8
 
 void Basic_irq_handling(volatile struct cpu context)
 {
-    jumptableirq[context.nberr+32]();
+    jumptableirq[context.nberr]();
+    outb(0x20, 0x20);
+
+    if(context.nberr+32 >= 40)
+        outb(0xA0, 0x20);
 }
 
-
-
-void irq_remap()
+void Irq_remap()
 {
-    //save currents masks
-    uint8_t mask1 = inb(0x21);
-    uint8_t mask2 = inb(0xA1);
-
     //ICW1 -- initialisation begin
     outb(0x20, 0x11);
-
-    outb(0x80, 0); //wait
-
     outb(0xA0, 0x11);
 
-    outb(0x80, 0); //wait
 
     //ICW2 -- remap interrupt numbers
     outb(0x21, 0x20);
-
-    outb(0x80, 0); //wait
-
     outb(0xA1 , 0x28);
-
-    outb(0x80, 0); //wait
 
     //ICW3 -- make the two pic communicate
     outb(0x21, 0x04);
-
-    outb(0x80, 0); //wait
-
     outb(0xA1, 0x02);
-
-    outb(0x80, 0); //wait
 
     //ICW4
     outb(0x21, 0x01);
-
-    outb(0x80, 0); //wait
-
     outb(0xA1, 0x01);
 
-    outb(0x80, 0); //wait
+    //Finished
+    outb(0x21, 0x00);
+    outb(0xA1, 0x00);
 
-    //Finished -- data register reinitialisation with saved masks
-    outb(0x21, mask1);
-    outb(0xA1, mask2);
-
-   //asm volatile("iret");
 }
+
+
+

@@ -76,15 +76,21 @@ week 5: IRQS mapping the real thing
 week 6: Week off due to medical reasons
 (19/06/22 - 26/06/22)
 
-week 7: Physical memory management implementation
+week 7: Keyboard driver coding
 (26/06/22 - 03/07/22)
 		-- Ok it's time to get back to work.
 
-		-- I need now to implement the pmm wich is the physical memory
-		managment part, i don't know how this work so i better be ready to
-		read documentations to know what i will do.
+		-- I implemented a function named keyboard_handling() and tried
+		to execute it, it didn't work because i did not unmask the IRQs,
+		now an new error occurs, the irqs are not well mapped, the kernel 
+		throw an floating point error, and i don't know if it come from the
+		mapping or somewhere else.
 
-		-- created pmm.c .
+		-- becoming quite good with bochs, I rechecked the Init Controls
+		Words and the value of the eflags, the problem can't be from the IRQ
+		mapping.
+
+		-- more checking today.
 
 
 
