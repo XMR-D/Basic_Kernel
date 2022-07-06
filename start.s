@@ -10,31 +10,39 @@ dd -(0x1badb002 + 0x0)
 
 %macro IRQ_NOCODE 1
 [global irq%1]
+extern change_args
 irq%1:
     push 0
     push %1
+    call change_args
     jmp irq_handler
 %endmacro
 
 %macro IRQ_CODE 1
 [global irq%1]
+extern change_args
 irq%1:
     push %1
+    call change_args
     jmp irq_handler
 %endmacro
 
 %macro ISR_NOCODE 1
 [global isr%1]
+extern change_args
 isr%1:
     push 0
     push %1
+    call change_args
     jmp isr_handler
 %endmacro
 
 %macro ISR_CODE 1
 [global isr%1]
+extern change_args
 isr%1:
     push %1
+    call change_args
     jmp isr_handler
 %endmacro
 
@@ -104,15 +112,15 @@ isr_handler:
     push ds
     push es
 
-    ; call the C handling function
-    call Basic_isr_handling
-
     mov ax, 0x10       ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
+
+    ; call the C handling function
+    call Basic_isr_handling
 
     ; Restore context
     pop es
@@ -132,14 +140,14 @@ irq_handler:
     push ds
     push es
 
-    call Basic_irq_handling
-
     mov ax, 0x10       ; 0x10 offset in GDT to kernel data segment (DS)
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
+
+    call Basic_irq_handling
 
     pop es
     pop ds

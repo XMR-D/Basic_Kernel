@@ -1,12 +1,10 @@
 #include "system.h"
-struct cpu{
-    uint32_t err_code, nberr;
+
+volatile struct cpu{
     uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax; //pusha
     uint32_t eflags;
     uint32_t gs, fs, es, ds, ss; //push ds,es,fs,gs,s
 };
-
-
 
 // define all ISR here!!
 
@@ -154,6 +152,15 @@ typedef void (*Handler)(void);
 
 Handler jumptable[20] = {err0, err1, err2, err3, err4, err5, err6, err7, err8, err9, err10, err11, err12, err13, err14, reserved, err16, err17, err18, err19};
 
+
+unsigned int tab[2];
+
+void change_args(uint32_t nberr, uint32_t code)
+{
+    tab[0] = code;
+    tab[1] = nberr;
+}
+
 void Regs_log(volatile struct cpu c)
 {
     sprintf((unsigned char *) "________Registers popa_______\n");
@@ -167,15 +174,17 @@ void Regs_log(volatile struct cpu c)
     sprintf((unsigned char *) "\n");
     sprintf((unsigned char *) "_______Interrupt code________\n");
     sprintf((unsigned char *) "\n");
-    sprintf((unsigned char *) "error number = %x\nerror code = %x\n", c.nberr, c.err_code);
+    sprintf((unsigned char *) "error number = %x\nerror code = %x\n", tab[1], tab[0]);
     sprintf((unsigned char *) "\n");
     sprintf((unsigned char *) "_______Regulars registers____\n");
     sprintf((unsigned char *) "\n");
     sprintf((unsigned char *) "gs = %x\nfs = %x\nes = %x\nds = %x\nes = %x\n", c.gs, c.fs, c.es, c.ds, c.es);
 }
 
+
+
 void Basic_isr_handling(volatile struct cpu context)
 {
     Regs_log(context);
-    jumptable[context.nberr]();
+    jumptable[tab[1]]();
 }

@@ -34,45 +34,45 @@
 00000000000i[      ]   Sound support: SB16 ES1370
 00000000000i[      ]   USB support: UHCI OHCI EHCI xHCI
 00000000000i[      ]   VGA extension support: vbe cirrus voodoo
-00000000000i[MEM0  ] allocated memory at 0x7f46ea973010. after alignment, vector=0x7f46ea974000
+00000000000i[MEM0  ] allocated memory at 0x7f3645dc0010. after alignment, vector=0x7f3645dc1000
 00000000000i[MEM0  ] 32,00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=256
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/share/bochs/BIOS-bochs-latest')
-00000000000i[      ] lt_dlhandle is 0x5557da8fb2e0
+00000000000i[      ] lt_dlhandle is 0x55d9799e22e0
 00000000000i[PLUGIN] loaded plugin libbx_hdimage.so
-00000000000i[      ] lt_dlhandle is 0x5557daf3c180
+00000000000i[      ] lt_dlhandle is 0x55d97a023180
 00000000000i[PLUGIN] loaded plugin libbx_soundalsa.so
 00000000000i[WAVOUT] ALSA: opened default PCM output device
 00000000000i[WAVOUT] changed sample rate to 44101
-00000000000i[      ] lt_dlhandle is 0x5557daf56600
+00000000000i[      ] lt_dlhandle is 0x55d97a03d600
 00000000000i[PLUGIN] loaded plugin libbx_pci.so
-00000000000i[      ] lt_dlhandle is 0x5557daf3cd30
+00000000000i[      ] lt_dlhandle is 0x55d97a023d30
 00000000000i[PLUGIN] loaded plugin libbx_pci2isa.so
-00000000000i[      ] lt_dlhandle is 0x5557daf64120
+00000000000i[      ] lt_dlhandle is 0x55d97a04b120
 00000000000i[PLUGIN] loaded plugin libbx_usb_uhci.so
-00000000000i[      ] lt_dlhandle is 0x5557daf667e0
+00000000000i[      ] lt_dlhandle is 0x55d97a04d7e0
 00000000000i[PLUGIN] loaded plugin libbx_acpi.so
-00000000000i[      ] lt_dlhandle is 0x5557daf67010
+00000000000i[      ] lt_dlhandle is 0x55d97a04e010
 00000000000i[PLUGIN] loaded plugin libbx_hpet.so
-00000000000i[      ] lt_dlhandle is 0x5557daf67e80
+00000000000i[      ] lt_dlhandle is 0x55d97a04ee80
 00000000000i[PLUGIN] loaded plugin libbx_cmos.so
-00000000000i[      ] lt_dlhandle is 0x5557daf687e0
+00000000000i[      ] lt_dlhandle is 0x55d97a04f7e0
 00000000000i[PLUGIN] loaded plugin libbx_dma.so
-00000000000i[      ] lt_dlhandle is 0x5557daf69230
+00000000000i[      ] lt_dlhandle is 0x55d97a050230
 00000000000i[PLUGIN] loaded plugin libbx_pic.so
-00000000000i[      ] lt_dlhandle is 0x5557daf69a90
+00000000000i[      ] lt_dlhandle is 0x55d97a050a90
 00000000000i[PLUGIN] loaded plugin libbx_pit.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6a490
+00000000000i[      ] lt_dlhandle is 0x55d97a051490
 00000000000i[PLUGIN] loaded plugin libbx_vga.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6acf0
+00000000000i[      ] lt_dlhandle is 0x55d97a051cf0
 00000000000i[PLUGIN] loaded plugin libbx_floppy.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6b8a0
+00000000000i[      ] lt_dlhandle is 0x55d97a0528a0
 00000000000i[PLUGIN] loaded plugin libbx_ioapic.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6c0a0
+00000000000i[      ] lt_dlhandle is 0x55d97a0530a0
 00000000000i[PLUGIN] loaded plugin libbx_keyboard.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6c870
+00000000000i[      ] lt_dlhandle is 0x55d97a053870
 00000000000i[PLUGIN] loaded plugin libbx_harddrv.so
-00000000000i[      ] lt_dlhandle is 0x5557daf6ead0
+00000000000i[      ] lt_dlhandle is 0x55d97a055ad0
 00000000000i[PLUGIN] loaded plugin libbx_pci_ide.so
 00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
 00000000000i[DEV   ] i440FX PMC present at device 0, function 0
@@ -80,7 +80,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Mon Jul  4 21:43:50 2022 (time0=1656963830)
+00000000000i[CMOS  ] Setting initial clock to: Wed Jul  6 01:55:25 2022 (time0=1657065325)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -115,7 +115,7 @@
 00000000000i[CD1   ] load cdrom with path='kernel.iso'
 00000000000i[CD1   ] Opening image file as a cd.
 00000000000i[HD    ] Media present in CD-ROM drive
-00000000000i[HD    ] Capacity is 7331 sectors (14,32 MB)
+00000000000i[HD    ] Capacity is 7335 sectors (14,33 MB)
 00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
 00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
 00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
@@ -227,6 +227,7 @@
 00000000000d[KBD   ] PS/2 mouse disabled
 00000000000i[      ] set SIGINT handler to bx_debug_ctrlc_handler
 00000000000d[KBD   ] PS/2 mouse disabled
+00000000000d[KBD   ] PS/2 mouse disabled
 00000004662i[BIOS  ] $Revision: 13752 $ $Date: 2019-12-30 14:16:18 +0100 (Mon, 30 Dec 2019) $
 00000316421d[KBD   ] keyboard: 8-bit write to 0064 = aa
 00000316421d[KBD   ] Self Test
@@ -278,302 +279,181 @@
 00000318747i[BIOS  ] Shutdown flag 0
 00000319379i[BIOS  ] ram_size=0x02000000
 00000319822i[BIOS  ] ram_end=32MB
-00000331980i[BIOS  ] Found 1 cpu(s)
-00000345668i[BIOS  ] bios_table_addr: 0x000f9db8 end=0x000fcc00
-00000804586i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001263607i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
-00001263632i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
-00001263657i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
-00001263682i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
-00001263692i[P2ISA ] write: ELCR2 = 0x0a
-00001264468i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
-00001278207i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001280534i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001282700i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001282941i[PIDE  ] BAR #4: i/o base address = 0xc000
-00001283595i[BIOS  ] region 4: 0x0000c000
-00001285661i[BIOS  ] PCI: bus=0 devfn=0x0a: vendor_id=0x8086 device_id=0x7020 class=0x0c03
-00001285877i[UHCI  ] BAR #4: i/o base address = 0xc020
-00001286531i[BIOS  ] region 4: 0x0000c020
-00001286670i[UHCI  ] new IRQ line = 9
-00001288615i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001288854i[ACPI  ] new IRQ line = 11
-00001288875i[ACPI  ] new IRQ line = 9
-00001288909i[ACPI  ] new PM base address: 0xb000
-00001288923i[ACPI  ] new SM base address: 0xb100
-00001288950i[PCI   ] setting SMRAM control register to 0x4a
-00001518626i[CPU0  ] Enter to System Management Mode
-00001518626i[CPU0  ] enter_system_management_mode: temporary disable VMX while in SMM mode
-00001518636i[CPU0  ] RSM: Resuming from System Management Mode
-00001748231i[PCI   ] setting SMRAM control register to 0x0a
-00001774965i[BIOS  ] MP table addr=0x000f9e90 MPC table addr=0x000f9dc0 size=0xc8
-00001776823i[BIOS  ] SMBIOS table addr=0x000f9ea0
-00001778941i[BIOS  ] ACPI tables: RSDP addr=0x000f9fd0 ACPI DATA addr=0x01ff0000 size=0xff8
-00001782207i[BIOS  ] Firmware waking vector 0x1ff00cc
-00001784638i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001785365i[BIOS  ] bios_table_cur_addr: 0x000f9ff4
-00001914239i[VBIOS ] VGABios $Id: vgabios.c 226 2020-01-02 21:36:23Z vruppert $
-00001914310i[BXVGA ] VBE known Display Interface b0c0
-00001914342i[BXVGA ] VBE known Display Interface b0c5
-00001916985i[VBIOS ] VBE Bios $Id: vbe.c 228 2020-01-02 23:09:02Z vruppert $
-00003177224i[XGUI  ] charmap update. Font is 9 x 16
-00005703719i[BIOS  ] IDE time out
-02106939187i[BIOS  ] Booting from 07c0:0000
-02172709000d[KBD   ] gen_scancode(): BX_KEY_ENTER pressed
-02172709000d[KBD   ] gen_scancode(): writing translated 1c
-02172709000d[KBD   ] kbd_enQ(0x1c)
-02172709000d[KBD   ] kbd_enQ: putting scancode 0x1c in internal buffer
-02172709000d[KBD   ] activating timer...
-02172709000d[KBD   ] service_keyboard: key in internal buffer waiting
-02172709297d[KBD   ] keyboard: 8-bit write to 0064 = ad
-02172709297d[KBD   ] keyboard disabled
-02172709303d[KBD   ] READ(60) = 1c
-02172709500d[KBD   ] service_keyboard(): no keys waiting
-02172709687d[KBD   ] keyboard: 8-bit write to 0064 = ae
-02172709687d[KBD   ] keyboard enabled
-02172709750d[KBD   ] service_keyboard(): no keys waiting
-02176250000d[KBD   ] gen_scancode(): BX_KEY_ENTER released
-02176250000d[KBD   ] gen_scancode(): writing translated 9c
-02176250000d[KBD   ] kbd_enQ(0x9c)
-02176250000d[KBD   ] kbd_enQ: putting scancode 0x9c in internal buffer
-02176250000d[KBD   ] activating timer...
-02176250000d[KBD   ] service_keyboard: key in internal buffer waiting
-02177050111d[KBD   ] keyboard: 8-bit write to 0064 = ad
-02177050111d[KBD   ] keyboard disabled
-02177050117d[KBD   ] READ(60) = 9c
-02177050250d[KBD   ] service_keyboard(): no keys waiting
-02177050347d[KBD   ] keyboard: 8-bit write to 0064 = ae
-02177050347d[KBD   ] keyboard enabled
-02177050500d[KBD   ] service_keyboard(): no keys waiting
-02199406332i[CPU0  ] [2199406332] Stopped on MAGIC BREAKPOINT
-02199406332d[KBD   ] PS/2 mouse disabled
-02199469187e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02199670786e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02199872385e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02200073984e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02200275583e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02200477182e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02200678781e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02200880380e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02201081979e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02201283578e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02201485177e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02201686776e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02201888375e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02202089974e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02202291573e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02202493172e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02202694771e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02202896370e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02203097969e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02203299568e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02203501167e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02203702766e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02203904365e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02204105964e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02204307563e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02204509162e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02204710761e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02204912360e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02205113959e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02205315558e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02205517157e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02205718756e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02205920355e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02206121954e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02206323553e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02206525152e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02206726751e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02206928350e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02207129949e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02207331548e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02207533147e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02207734746e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02207936345e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02208137944e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02208339543e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02208541142e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02208742741e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02208944340e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02209145939e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02209347538e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02209549137e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02209750736e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02209952335e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02210153934e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02210355533e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02210557132e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02210758731e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02210960330e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02211161929e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02211363528e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02211565127e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02211766726e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02211968325e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02212169924e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02212371523e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02212573122e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02212774721e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02212976320e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02213177919e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02213379518e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02213581117e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02213782716e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02213984315e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02214185914e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02214387513e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02214589112e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02214790711e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02214992310e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02215193909e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02215395508e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02215597107e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02215798706e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02216000305e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02216201904e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02216403503e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02216605102e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02216806701e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02217008300e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02217209899e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02217411498e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02217613097e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02217814696e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02218016295e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02218217894e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02218419493e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02218621092e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02218822691e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02219024290e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02219225889e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02219427488e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02219629087e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02219830686e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02220032285e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02220233884e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02220435483e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02220637082e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02220838681e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02221040280e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02221241879e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02221443478e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02221645077e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02221846676e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02222048275e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02222249874e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02222451473e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02222653072e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02222854671e[CPU0  ] fetch_raw_descriptor: GDT: index (eaf) 1d5 > limit (27)
-02223056265e[CPU0  ] load_seg_reg(DS, 0x0010): not data or readable code
-02223056265e[CPU0  ] interrupt(): not accessible or not code segment cs=0x0008
-02223056265e[CPU0  ] interrupt(): not accessible or not code segment cs=0x0008
-02223056265i[CPU0  ] CPU is in protected mode (active)
-02223056265i[CPU0  ] CS.mode = 32 bit
-02223056265i[CPU0  ] SS.mode = 32 bit
-02223056265i[CPU0  ] EFER   = 0x00000000
-02223056265i[CPU0  ] | EAX=00000010  EBX=00015240  ECX=000003d5  EDX=000003d5
-02223056265i[CPU0  ] | ESP=00012aa8  EBP=00014a18  ESI=00000000  EDI=00000000
-02223056265i[CPU0  ] | IOPL=0 id vip vif ac vm RF nt of df if tf sf zf AF pf cf
-02223056265i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-02223056265i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-02223056265i[CPU0  ] | EIP=00010ff1 (00010ff1)
-02223056265i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
-02223056265i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-02223056265e[CPU0  ] exception(): 3rd (13) exception with no resolution, shutdown status is 00h, resetting
-02223056265i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
-02223056265i[CPU0  ] cpu hardware reset
-02223056265i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
-02223056265i[CPU0  ] CPU[0] is the bootstrap processor
-02223056265i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
-02223056265i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00002028 1fcbfbff
-02223056265i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
-02223056265i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
-02223056265i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
-02223056265i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
-02223056265i[CPU0  ] CPUID[0x80000000]: 80000008 00000000 00000000 00000000
-02223056265i[CPU0  ] CPUID[0x80000001]: 00000000 00000000 00000101 2a100000
-02223056265i[CPU0  ] CPUID[0x80000002]: 20202020 20202020 20202020 6e492020
-02223056265i[CPU0  ] CPUID[0x80000003]: 286c6574 50202952 69746e65 52286d75
-02223056265i[CPU0  ] CPUID[0x80000004]: 20342029 20555043 20202020 00202020
-02223056265i[CPU0  ] CPUID[0x80000005]: 01ff01ff 01ff01ff 40020140 40020140
-02223056265i[CPU0  ] CPUID[0x80000006]: 00000000 42004200 02008140 00000000
-02223056265i[CPU0  ] CPUID[0x80000007]: 00000000 00000000 00000000 00000000
-02223056265i[CPU0  ] CPUID[0x80000008]: 00003028 00000000 00000000 00000000
-02223056265i[CPU0  ] CPU Features supported:
-02223056265i[CPU0  ] 		x87
-02223056265i[CPU0  ] 		486ni
-02223056265i[CPU0  ] 		pentium_ni
-02223056265i[CPU0  ] 		p6ni
-02223056265i[CPU0  ] 		mmx
-02223056265i[CPU0  ] 		debugext
-02223056265i[CPU0  ] 		vme
-02223056265i[CPU0  ] 		pse
-02223056265i[CPU0  ] 		pae
-02223056265i[CPU0  ] 		pge
-02223056265i[CPU0  ] 		pse36
-02223056265i[CPU0  ] 		mtrr
-02223056265i[CPU0  ] 		pat
-02223056265i[CPU0  ] 		sysenter_sysexit
-02223056265i[CPU0  ] 		clflush
-02223056265i[CPU0  ] 		sse
-02223056265i[CPU0  ] 		sse2
-02223056265i[CPU0  ] 		mwait
-02223056265i[CPU0  ] 		vmx
-02223056265i[CPU0  ] 		longmode
-02223056265i[CPU0  ] 		lm_lahf_sahf
-02223056265i[CPU0  ] 		nx
-02223056265i[CPU0  ] 		cmpxhg16b
-02223056265i[CPU0  ] 		rdtscp
-02223056265i[CPU0  ] 		ffxsr
-02223056265i[CPU0  ] 		xapic
-02223056265i[PLUGIN] reset of 'pci' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'cmos' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'dma' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'pic' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'pit' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'vga' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'floppy' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'acpi' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'hpet' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'ioapic' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'keyboard' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'harddrv' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'unmapped' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'biosdev' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'speaker' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'parallel' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'serial' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'gameport' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'iodebug' plugin device by virtual method
-02223056265i[PLUGIN] reset of 'usb_uhci' plugin device by virtual method
-02223056266d[KBD   ] PS/2 mouse disabled
-02223056266i[      ] dbg: Quit
-02223056266i[CPU0  ] CPU is in real mode (active)
-02223056266i[CPU0  ] CS.mode = 16 bit
-02223056266i[CPU0  ] SS.mode = 16 bit
-02223056266i[CPU0  ] EFER   = 0x00000000
-02223056266i[CPU0  ] | EAX=00000000  EBX=00000000  ECX=00000000  EDX=00000000
-02223056266i[CPU0  ] | ESP=00000000  EBP=00000000  ESI=00000000  EDI=00000000
-02223056266i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af pf cf
-02223056266i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-02223056266i[CPU0  ] |  CS:f000( 1e00| 0|  0) ffff0000 0000ffff 0 0
-02223056266i[CPU0  ] |  DS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
-02223056266i[CPU0  ] |  SS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
-02223056266i[CPU0  ] |  ES:0000( 0000| 0|  0) 00000000 0000ffff 0 0
-02223056266i[CPU0  ] |  FS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
-02223056266i[CPU0  ] |  GS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
-02223056266i[CPU0  ] | EIP=0000fff0 (0000fff0)
-02223056266i[CPU0  ] | CR0=0x60000010 CR2=0x00000000
-02223056266i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-02223056266d[KBD   ] Exit
-02223056266i[CMOS  ] Last time is 1656966053 (Mon Jul  4 22:20:53 2022)
-02223056266i[XGUI  ] Exit
-02223056266i[SIM   ] quit_sim called with exit code 0
+00000331971i[BIOS  ] Found 1 cpu(s)
+00000345659i[BIOS  ] bios_table_addr: 0x000f9db8 end=0x000fcc00
+00000804577i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001263598i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001263623i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001263648i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001263673i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001263683i[P2ISA ] write: ELCR2 = 0x0a
+00001264459i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001278198i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001280525i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001282691i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001282932i[PIDE  ] BAR #4: i/o base address = 0xc000
+00001283586i[BIOS  ] region 4: 0x0000c000
+00001285652i[BIOS  ] PCI: bus=0 devfn=0x0a: vendor_id=0x8086 device_id=0x7020 class=0x0c03
+00001285868i[UHCI  ] BAR #4: i/o base address = 0xc020
+00001286522i[BIOS  ] region 4: 0x0000c020
+00001286661i[UHCI  ] new IRQ line = 9
+00001288606i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001288845i[ACPI  ] new IRQ line = 11
+00001288866i[ACPI  ] new IRQ line = 9
+00001288900i[ACPI  ] new PM base address: 0xb000
+00001288914i[ACPI  ] new SM base address: 0xb100
+00001288941i[PCI   ] setting SMRAM control register to 0x4a
+00001518617i[CPU0  ] Enter to System Management Mode
+00001518617i[CPU0  ] enter_system_management_mode: temporary disable VMX while in SMM mode
+00001518627i[CPU0  ] RSM: Resuming from System Management Mode
+00001748222i[PCI   ] setting SMRAM control register to 0x0a
+00001774956i[BIOS  ] MP table addr=0x000f9e90 MPC table addr=0x000f9dc0 size=0xc8
+00001776814i[BIOS  ] SMBIOS table addr=0x000f9ea0
+00001778932i[BIOS  ] ACPI tables: RSDP addr=0x000f9fd0 ACPI DATA addr=0x01ff0000 size=0xff8
+00001782198i[BIOS  ] Firmware waking vector 0x1ff00cc
+00001784629i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001785356i[BIOS  ] bios_table_cur_addr: 0x000f9ff4
+00001914230i[VBIOS ] VGABios $Id: vgabios.c 226 2020-01-02 21:36:23Z vruppert $
+00001914301i[BXVGA ] VBE known Display Interface b0c0
+00001914333i[BXVGA ] VBE known Display Interface b0c5
+00001916976i[VBIOS ] VBE Bios $Id: vbe.c 228 2020-01-02 23:09:02Z vruppert $
+00002332186i[XGUI  ] charmap update. Font is 9 x 16
+00005703779i[BIOS  ] IDE time out
+02007827930i[BIOS  ] Booting from 07c0:0000
+02064335000d[KBD   ] gen_scancode(): BX_KEY_ENTER pressed
+02064335000d[KBD   ] gen_scancode(): writing translated 1c
+02064335000d[KBD   ] kbd_enQ(0x1c)
+02064335000d[KBD   ] kbd_enQ: putting scancode 0x1c in internal buffer
+02064335000d[KBD   ] activating timer...
+02064335000d[KBD   ] service_keyboard: key in internal buffer waiting
+02064335369d[KBD   ] keyboard: 8-bit write to 0064 = ad
+02064335369d[KBD   ] keyboard disabled
+02064335375d[KBD   ] READ(60) = 1c
+02064335500d[KBD   ] service_keyboard(): no keys waiting
+02064335759d[KBD   ] keyboard: 8-bit write to 0064 = ae
+02064335759d[KBD   ] keyboard enabled
+02064336000d[KBD   ] service_keyboard(): no keys waiting
+02067296000d[KBD   ] gen_scancode(): BX_KEY_ENTER released
+02067296000d[KBD   ] gen_scancode(): writing translated 9c
+02067296000d[KBD   ] kbd_enQ(0x9c)
+02067296000d[KBD   ] kbd_enQ: putting scancode 0x9c in internal buffer
+02067296000d[KBD   ] activating timer...
+02067296000d[KBD   ] service_keyboard: key in internal buffer waiting
+02068676160d[KBD   ] keyboard: 8-bit write to 0064 = ad
+02068676160d[KBD   ] keyboard disabled
+02068676166d[KBD   ] READ(60) = 9c
+02068676250d[KBD   ] service_keyboard(): no keys waiting
+02068676419d[KBD   ] keyboard: 8-bit write to 0064 = ae
+02068676419d[KBD   ] keyboard enabled
+02068676500d[KBD   ] service_keyboard(): no keys waiting
+02091076850e[CPU0  ] interrupt(): not accessible or not code segment cs=0x0008
+02091076850e[CPU0  ] interrupt(): not accessible or not code segment cs=0x0008
+02091076850e[CPU0  ] interrupt(): not accessible or not code segment cs=0x0008
+02091076850i[CPU0  ] CPU is in protected mode (active)
+02091076850i[CPU0  ] CS.mode = 32 bit
+02091076850i[CPU0  ] SS.mode = 32 bit
+02091076850i[CPU0  ] EFER   = 0x00000000
+02091076850i[CPU0  ] | EAX=00000003  EBX=00015b80  ECX=000003d5  EDX=000003d5
+02091076850i[CPU0  ] | ESP=0001334c  EBP=00015358  ESI=00000000  EDI=00000000
+02091076850i[CPU0  ] | IOPL=0 id vip vif ac vm RF nt of df if tf sf zf af PF cf
+02091076850i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+02091076850i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02091076850i[CPU0  ] | EIP=0000000b (0000000b)
+02091076850i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+02091076850i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+02091076850e[CPU0  ] exception(): 3rd (13) exception with no resolution, shutdown status is 00h, resetting
+02091076850i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
+02091076850i[CPU0  ] cpu hardware reset
+02091076850i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+02091076850i[CPU0  ] CPU[0] is the bootstrap processor
+02091076850i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+02091076850i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00002028 1fcbfbff
+02091076850i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+02091076850i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+02091076850i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+02091076850i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+02091076850i[CPU0  ] CPUID[0x80000000]: 80000008 00000000 00000000 00000000
+02091076850i[CPU0  ] CPUID[0x80000001]: 00000000 00000000 00000101 2a100000
+02091076850i[CPU0  ] CPUID[0x80000002]: 20202020 20202020 20202020 6e492020
+02091076850i[CPU0  ] CPUID[0x80000003]: 286c6574 50202952 69746e65 52286d75
+02091076850i[CPU0  ] CPUID[0x80000004]: 20342029 20555043 20202020 00202020
+02091076850i[CPU0  ] CPUID[0x80000005]: 01ff01ff 01ff01ff 40020140 40020140
+02091076850i[CPU0  ] CPUID[0x80000006]: 00000000 42004200 02008140 00000000
+02091076850i[CPU0  ] CPUID[0x80000007]: 00000000 00000000 00000000 00000000
+02091076850i[CPU0  ] CPUID[0x80000008]: 00003028 00000000 00000000 00000000
+02091076850i[CPU0  ] CPU Features supported:
+02091076850i[CPU0  ] 		x87
+02091076850i[CPU0  ] 		486ni
+02091076850i[CPU0  ] 		pentium_ni
+02091076850i[CPU0  ] 		p6ni
+02091076850i[CPU0  ] 		mmx
+02091076850i[CPU0  ] 		debugext
+02091076850i[CPU0  ] 		vme
+02091076850i[CPU0  ] 		pse
+02091076850i[CPU0  ] 		pae
+02091076850i[CPU0  ] 		pge
+02091076850i[CPU0  ] 		pse36
+02091076850i[CPU0  ] 		mtrr
+02091076850i[CPU0  ] 		pat
+02091076850i[CPU0  ] 		sysenter_sysexit
+02091076850i[CPU0  ] 		clflush
+02091076850i[CPU0  ] 		sse
+02091076850i[CPU0  ] 		sse2
+02091076850i[CPU0  ] 		mwait
+02091076850i[CPU0  ] 		vmx
+02091076850i[CPU0  ] 		longmode
+02091076850i[CPU0  ] 		lm_lahf_sahf
+02091076850i[CPU0  ] 		nx
+02091076850i[CPU0  ] 		cmpxhg16b
+02091076850i[CPU0  ] 		rdtscp
+02091076850i[CPU0  ] 		ffxsr
+02091076850i[CPU0  ] 		xapic
+02091076850i[PLUGIN] reset of 'pci' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'cmos' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'dma' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'pic' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'pit' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'vga' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'floppy' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'acpi' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'hpet' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'ioapic' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'keyboard' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'harddrv' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'unmapped' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'biosdev' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'speaker' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'parallel' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'serial' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'gameport' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'iodebug' plugin device by virtual method
+02091076850i[PLUGIN] reset of 'usb_uhci' plugin device by virtual method
+02091076851d[KBD   ] PS/2 mouse disabled
+02091076851i[      ] dbg: Quit
+02091076851i[CPU0  ] CPU is in real mode (active)
+02091076851i[CPU0  ] CS.mode = 16 bit
+02091076851i[CPU0  ] SS.mode = 16 bit
+02091076851i[CPU0  ] EFER   = 0x00000000
+02091076851i[CPU0  ] | EAX=00000000  EBX=00000000  ECX=00000000  EDX=00000000
+02091076851i[CPU0  ] | ESP=00000000  EBP=00000000  ESI=00000000  EDI=00000000
+02091076851i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af pf cf
+02091076851i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+02091076851i[CPU0  ] |  CS:f000( 1e00| 0|  0) ffff0000 0000ffff 0 0
+02091076851i[CPU0  ] |  DS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
+02091076851i[CPU0  ] |  SS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
+02091076851i[CPU0  ] |  ES:0000( 0000| 0|  0) 00000000 0000ffff 0 0
+02091076851i[CPU0  ] |  FS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
+02091076851i[CPU0  ] |  GS:0000( 0000| 0|  0) 00000000 0000ffff 0 0
+02091076851i[CPU0  ] | EIP=0000fff0 (0000fff0)
+02091076851i[CPU0  ] | CR0=0x60000010 CR2=0x00000000
+02091076851i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+02091076851d[KBD   ] Exit
+02091076851i[CMOS  ] Last time is 1657067416 (Wed Jul  6 02:30:16 2022)
