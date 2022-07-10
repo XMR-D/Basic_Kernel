@@ -9,97 +9,96 @@ struct cpu{
 
 extern void irq_handler();
 
-void irq0()
+void irqe0()
 {
-    printf((unsigned char *) "IRQ %u triggered\n", 0);
+    //sprintf((unsigned char *) "tick !\n");
 }
 
-void irq1()
+void irqe1()
 {
     keyboard_handling();
 }
 
-void irq2()
+void irqe2()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 2);
 }
 
-void irq3()
+void irqe3()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 3);
 }
 
-void irq4()
+void irqe4()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 4);
 }
 
-void irq5()
+void irqe5()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 5);
 }
 
-void irq6()
+void irqe6()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 6);
 }
 
-void irq7()
+void irqe7()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 7);
 }
 
-void irq8()
+void irqe8()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 8);
 }
 
-void irq9()
+void irqe9()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 9);
 }
 
-void irq10()
+void irqe10()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 10);
 }
 
-void irq11()
+void irqe11()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 11);
 }
 
-void irq12()
+void irqe12()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 12);
 }
 
-void irq13()
+void irqe13()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 13);
 }
 
-void irq14()
+void irqe14()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 14);
 }
 
-void irq15()
+void irqe15()
 {
     printf((unsigned char *) "IRQ %u triggered\n", 15);
 }
 
 typedef void (*Handler)(void);
 
-Handler jumptableirq[16] = {irq0, irq1, irq2, irq3, irq4, irq5, irq6, irq7, irq8, irq9, irq10, irq11, irq12, irq13, irq14, irq15};
+Handler jumptableirq[16] = {irqe0, irqe1, irqe2, irqe3, irqe4, irqe5, irqe6, irqe7, irqe8, irqe9, irqe10, irqe11, irqe12, irqe13, irqe14, irqe15};
 
-void Basic_irq_handling(volatile struct cpu context)
+unsigned int tab[2];
+
+void Basic_irq_handling()
 {
-    jumptableirq[context.nberr]();
+    jumptableirq[tab[1]-32]();
     outb(0x20, 0x20);
-
-    if(context.nberr+32 >= 40)
-        outb(0xA0, 0x20);
 }
 
 void Irq_remap()

@@ -5,23 +5,14 @@
 align 4
 
 dd 0x1badb002
-dd 0x0
-dd -(0x1badb002 + 0x0)
+dd 0x3
+dd -(0x1badb002 + 0x3)
 
 %macro IRQ_NOCODE 1
 [global irq%1]
 extern change_args
 irq%1:
     push 0
-    push %1
-    call change_args
-    jmp irq_handler
-%endmacro
-
-%macro IRQ_CODE 1
-[global irq%1]
-extern change_args
-irq%1:
     push %1
     call change_args
     jmp irq_handler
@@ -57,6 +48,10 @@ start:
 
 ; endless loop where we call main and other functions.
 stublet:
+    xchg bx, bx
+    push ebx
+    extern get_mmap
+    call get_mmap
     extern main
     call main
     jmp $
@@ -102,6 +97,23 @@ ISR_NOCODE 16
 ISR_CODE 17
 ISR_NOCODE 18
 ISR_NOCODE 19
+
+IRQ_NOCODE 32
+IRQ_NOCODE 33
+IRQ_NOCODE 34
+IRQ_NOCODE 35
+IRQ_NOCODE 36
+IRQ_NOCODE 37
+IRQ_NOCODE 38
+IRQ_NOCODE 39
+IRQ_NOCODE 40
+IRQ_NOCODE 41
+IRQ_NOCODE 42
+IRQ_NOCODE 43
+IRQ_NOCODE 44
+IRQ_NOCODE 45
+IRQ_NOCODE 46
+IRQ_NOCODE 47
 
 global isr_handler
 extern Basic_isr_handling

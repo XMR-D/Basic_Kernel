@@ -388,28 +388,65 @@ void sprintf(unsigned char * str, ...)
     }
 }
 
-unsigned char keymap[89] =
+char keymap[89] =
 {
-   0, '1', '2', '3', '4', '5', '6', '7', '8',
-  '9', '0', '-', '=', '\b', '\t', 'q', 'w', 'e', 'r',
-  't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\n', 0, 'a',
-  's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
-  '\'', '`',   0, '\\', 'z', 'x', 'c', 'v', 'b', 'n',
-  'm', ',', '.', '/', 0, '*', 0,' ', 0, 0,
+  0, 0, '&', 'e', '"', '\'', '(', '-', 'e',
+  '_', 'c', 'a', ')', '=', 0, 0, 'a', 'z', 'e',
+  'r', 't', 'y', 'u', 'i', 'o', 'p', 0, '$', 0, 0, 'q',
+  's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
+  'u', 0, 0, '*', 'w', 'x', 'c', 'v', 'b', 'n', ',', ';',
+  ':', '!', 0, '*', 0, ' ', 0,' ', 0, 0,
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, '-', 0, 0, 0, '+', 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0,
-
+  0,
 };
+
+void suppr()
+{
+    if(csr_x != 0)
+    {
+       csr_x--;
+       putch(' ');
+       csr_x--;
+       move_csr();
+    }
+
+}
+
+void supprl()
+{
+    while(csr_x != 0)
+        suppr();
+}
 
 void keyboard_handling()
 {
     uint32_t scancode = inb(0x60);
-
+    //sprintf("%x\n", scancode);
     switch(scancode)
     {
     case 1:
-        puts((unsigned char *) "ESC");
+        supprl();
+        break;
+    case 0x1C:
+        putch('\n');
+        break;
+    case 0x8E:
+        suppr();
+        break;
+    case 0xA0:
+        break;
+    case 0xA2:
+        break;
+    case 0xA3:
+        break;
+    case 0x91:
+        break;
+    case 0x94:
+        break;
+    case 0x96:
+        break;
+    case 0x97:
         break;
     case 29:
         puts((unsigned char *) "CTRL");

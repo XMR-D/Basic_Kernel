@@ -64,10 +64,7 @@ void main()
     idt_init();
     Irq_remap();
     printf((unsigned char *) "Hello kernel world!\n");
-    //asm volatile("movw $1, %eax; div %eax, %eax");
-    //asm volatile("xchg %bx, %bx");
-    //asm volatile("int3");
-    //asm volatile("sti");
+    asm volatile("sti");
 
 
     for (;;);

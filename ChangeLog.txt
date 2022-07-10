@@ -92,6 +92,11 @@ week 7: Keyboard driver coding
 
 		-- more checking today.
 
+		-- found the problem, ISRs were not set properly, the error code and the
+		error number were not pushed. fixed it by implementing a function that
+		save the errcode and the error number, ISRs works well, however the
+		ticking IRQ throw a general protection fault. So i need to check my
+		gdt.
 
 
 

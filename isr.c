@@ -1,6 +1,6 @@
 #include "system.h"
 
-volatile struct cpu{
+struct cpu{
     uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax; //pusha
     uint32_t eflags;
     uint32_t gs, fs, es, ds, ss; //push ds,es,fs,gs,s

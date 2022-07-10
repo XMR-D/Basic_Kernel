@@ -61,24 +61,30 @@ extern void err16();
 extern void err17();
 extern void err18();
 
+extern void change_args(uint32_t nberr, uint32_t code);
+
 //IRQs and function
 
-extern void irq0();
-extern void irq1();
-extern void irq2();
-extern void irq3();
-extern void irq4();
-extern void irq5();
-extern void irq6();
-extern void irq7();
-extern void irq8();
-extern void irq10();
-extern void irq11();
-extern void irq12();
-extern void irq13();
-extern void irq14();
-extern void irq15();
+extern void irqe0();
+extern void irqe1();
+extern void irqe2();
+extern void irqe3();
+extern void irqe4();
+extern void irqe5();
+extern void irqe6();
+extern void irqe7();
+extern void irqe8();
+extern void irqe10();
+extern void irqe11();
+extern void irqe12();
+extern void irqe13();
+extern void irqe14();
+extern void irqe15();
 
 extern void Irq_remap();
+
+//PHysical memory manager functions
+
+//extern void get_mmap(multibootinfo * minfo);
 
 #endif
