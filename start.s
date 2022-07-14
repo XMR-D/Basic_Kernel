@@ -5,8 +5,8 @@
 align 4
 
 dd 0x1badb002
-dd 0x3
-dd -(0x1badb002 + 0x3)
+dd 0x2
+dd -(0x1badb002 + 0x2)
 
 %macro IRQ_NOCODE 1
 [global irq%1]
@@ -39,6 +39,7 @@ isr%1:
 
 
 [section .text]
+align 4
 
 global start
 start:
@@ -48,7 +49,6 @@ start:
 
 ; endless loop where we call main and other functions.
 stublet:
-    xchg bx, bx
     push ebx
     extern get_mmap
     call get_mmap
@@ -171,6 +171,7 @@ irq_handler:
 
 ; allocate 8kB for .bss section used to stored the stack
 [section .bss]
+align 4
 
 resb 8192
 _sys_stack

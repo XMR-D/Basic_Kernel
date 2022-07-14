@@ -98,5 +98,19 @@ week 7: Keyboard driver coding
 		ticking IRQ throw a general protection fault. So i need to check my
 		gdt.
 
+		-- i did not push the err code so i fixed it and it work just fine.
+
+week 8: MEMORY MAP AND PMM (KILL ME)
+(03/06/22 - )
+		-- To get the memory map, first i need to push ebx before jumping into
+		the kernel, and then get the multiboot info struct to get the memory
+		map address, then i code a simple for function to print all the
+		segment of the mmap.
+
+		-- I don't know why my mmap is full of garbage, it's been 3 days now
+		!!! I rechecked the mmap struct and the multiboot info struct and
+		nothing, i checked the aligment and nothing, i rechecked the objdump
+		of the functions nothing, tried to put "volatile" AND STILL NOTHING !
+		arrrrrr, need some coffee.
 
 

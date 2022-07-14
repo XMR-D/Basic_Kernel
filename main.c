@@ -63,6 +63,8 @@ void main()
     init_video();
     idt_init();
     Irq_remap();
+
+    sprintf((unsigned char *) "\n");
     printf((unsigned char *) "Hello kernel world!\n");
     asm volatile("sti");
 
