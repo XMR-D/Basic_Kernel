@@ -50,8 +50,8 @@ start:
 stublet:
     xchg bx, bx
     push ebx
-    push eax
-    xchg bx, bx
+    extern get_mmap
+    call get_mmap
     extern main
     call main
     jmp $

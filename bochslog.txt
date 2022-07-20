@@ -34,45 +34,45 @@
 00000000000i[      ]   Sound support: SB16 ES1370
 00000000000i[      ]   USB support: UHCI OHCI EHCI xHCI
 00000000000i[      ]   VGA extension support: vbe cirrus voodoo
-00000000000i[MEM0  ] allocated memory at 0x7f68653bf010. after alignment, vector=0x7f68653c0000
+00000000000i[MEM0  ] allocated memory at 0x7f93d08f6010. after alignment, vector=0x7f93d08f7000
 00000000000i[MEM0  ] 32,00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=256
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/share/bochs/BIOS-bochs-latest')
-00000000000i[      ] lt_dlhandle is 0x55f1ea5682c0
+00000000000i[      ] lt_dlhandle is 0x562ac139f2c0
 00000000000i[PLUGIN] loaded plugin libbx_hdimage.so
-00000000000i[      ] lt_dlhandle is 0x55f1eaba9020
+00000000000i[      ] lt_dlhandle is 0x562ac19e0020
 00000000000i[PLUGIN] loaded plugin libbx_soundalsa.so
 00000000000i[WAVOUT] ALSA: opened default PCM output device
 00000000000i[WAVOUT] changed sample rate to 44101
-00000000000i[      ] lt_dlhandle is 0x55f1eabc34a0
+00000000000i[      ] lt_dlhandle is 0x562ac19fa4a0
 00000000000i[PLUGIN] loaded plugin libbx_pci.so
-00000000000i[      ] lt_dlhandle is 0x55f1eaba9bd0
+00000000000i[      ] lt_dlhandle is 0x562ac19e0bd0
 00000000000i[PLUGIN] loaded plugin libbx_pci2isa.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd0fc0
+00000000000i[      ] lt_dlhandle is 0x562ac1a07fc0
 00000000000i[PLUGIN] loaded plugin libbx_usb_uhci.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd3680
+00000000000i[      ] lt_dlhandle is 0x562ac1a0a680
 00000000000i[PLUGIN] loaded plugin libbx_acpi.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd3eb0
+00000000000i[      ] lt_dlhandle is 0x562ac1a0aeb0
 00000000000i[PLUGIN] loaded plugin libbx_hpet.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd4d20
+00000000000i[      ] lt_dlhandle is 0x562ac1a0bd20
 00000000000i[PLUGIN] loaded plugin libbx_cmos.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd5680
+00000000000i[      ] lt_dlhandle is 0x562ac1a0c680
 00000000000i[PLUGIN] loaded plugin libbx_dma.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd60d0
+00000000000i[      ] lt_dlhandle is 0x562ac1a0d0d0
 00000000000i[PLUGIN] loaded plugin libbx_pic.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd6930
+00000000000i[      ] lt_dlhandle is 0x562ac1a0d930
 00000000000i[PLUGIN] loaded plugin libbx_pit.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd7330
+00000000000i[      ] lt_dlhandle is 0x562ac1a0e330
 00000000000i[PLUGIN] loaded plugin libbx_vga.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd7b90
+00000000000i[      ] lt_dlhandle is 0x562ac1a0eb90
 00000000000i[PLUGIN] loaded plugin libbx_floppy.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd8740
+00000000000i[      ] lt_dlhandle is 0x562ac1a0f740
 00000000000i[PLUGIN] loaded plugin libbx_ioapic.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd8f40
+00000000000i[      ] lt_dlhandle is 0x562ac1a0ff40
 00000000000i[PLUGIN] loaded plugin libbx_keyboard.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabd9710
+00000000000i[      ] lt_dlhandle is 0x562ac1a10710
 00000000000i[PLUGIN] loaded plugin libbx_harddrv.so
-00000000000i[      ] lt_dlhandle is 0x55f1eabdb970
+00000000000i[      ] lt_dlhandle is 0x562ac1a12970
 00000000000i[PLUGIN] loaded plugin libbx_pci_ide.so
 00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
 00000000000i[DEV   ] i440FX PMC present at device 0, function 0
@@ -80,7 +80,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Wed Jul 20 01:37:09 2022 (time0=1658273829)
+00000000000i[CMOS  ] Setting initial clock to: Wed Jul 20 13:47:50 2022 (time0=1658317670)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -115,7 +115,7 @@
 00000000000i[CD1   ] load cdrom with path='kernel.iso'
 00000000000i[CD1   ] Opening image file as a cd.
 00000000000i[HD    ] Media present in CD-ROM drive
-00000000000i[HD    ] Capacity is 7338 sectors (14,33 MB)
+00000000000i[HD    ] Capacity is 7339 sectors (14,33 MB)
 00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
 00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
 00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
@@ -234,7 +234,7 @@
 00000331935i[BIOS  ] Found 1 cpu(s)
 00000345623i[BIOS  ] bios_table_addr: 0x000f9db8 end=0x000fcc00
 00000804541i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00000875545i[XGUI  ] charmap update. Font is 9 x 16
+00001134490i[XGUI  ] charmap update. Font is 9 x 16
 00001263562i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
 00001263587i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
 00001263612i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
@@ -270,29 +270,29 @@
 00001914265i[BXVGA ] VBE known Display Interface b0c0
 00001914297i[BXVGA ] VBE known Display Interface b0c5
 00001916940i[VBIOS ] VBE Bios $Id: vbe.c 228 2020-01-02 23:09:02Z vruppert $
-00002351122i[XGUI  ] charmap update. Font is 9 x 16
-00005703973i[BIOS  ] IDE time out
-00380671511i[BIOS  ] Booting from 07c0:0000
-00388520466e[WAVOUT] ALSA: underrun occurred
-00455350406i[CPU0  ] [455350406] Stopped on MAGIC BREAKPOINT
-00455350406i[      ] dbg: Quit
-00455350406i[CPU0  ] CPU is in protected mode (active)
-00455350406i[CPU0  ] CS.mode = 32 bit
-00455350406i[CPU0  ] SS.mode = 32 bit
-00455350406i[CPU0  ] EFER   = 0x00000000
-00455350406i[CPU0  ] | EAX=2badb002  EBX=000163a0  ECX=00000000  EDX=00000000
-00455350406i[CPU0  ] | ESP=00015b90  EBP=00000000  ESI=00000000  EDI=00000000
-00455350406i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
-00455350406i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00455350406i[CPU0  ] |  CS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] |  DS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] |  SS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] |  ES:0018( 0003| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] |  FS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] |  GS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
-00455350406i[CPU0  ] | EIP=0001153a (0001153a)
-00455350406i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
-00455350406i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-00455350406i[CMOS  ] Last time is 1658274284 (Wed Jul 20 01:44:44 2022)
-00455350406i[XGUI  ] Exit
-00455350406i[SIM   ] quit_sim called with exit code 0
+00002068693i[XGUI  ] charmap update. Font is 9 x 16
+00005703996i[BIOS  ] IDE time out
+00455018914i[BIOS  ] Booting from 07c0:0000
+00462834142e[WAVOUT] ALSA: underrun occurred
+00536162588i[CPU0  ] [536162588] Stopped on MAGIC BREAKPOINT
+00536162588i[      ] dbg: Quit
+00536162588i[CPU0  ] CPU is in protected mode (active)
+00536162588i[CPU0  ] CS.mode = 32 bit
+00536162588i[CPU0  ] SS.mode = 32 bit
+00536162588i[CPU0  ] EFER   = 0x00000000
+00536162588i[CPU0  ] | EAX=2badb002  EBX=00016540  ECX=00000000  EDX=00000000
+00536162588i[CPU0  ] | ESP=00015d30  EBP=00000000  ESI=00000000  EDI=00000000
+00536162588i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
+00536162588i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00536162588i[CPU0  ] |  CS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] |  DS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] |  SS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] |  ES:0018( 0003| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] |  FS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] |  GS:0018( 0003| 0|  0) 00000000 ffffffff 1 1
+00536162588i[CPU0  ] | EIP=0001162a (0001162a)
+00536162588i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+00536162588i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+00536162588i[CMOS  ] Last time is 1658318206 (Wed Jul 20 13:56:46 2022)
+00536162588i[XGUI  ] Exit
+00536162588i[SIM   ] quit_sim called with exit code 0

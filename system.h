@@ -119,6 +119,6 @@ extern void Irq_remap();
 
 //PHysical memory manager functions
 
-extern int get_mmap(uint32_t address, multibootinfo_t * minfo);
+extern int get_mmap(multibootinfo_t * minfo);
 
 #endif

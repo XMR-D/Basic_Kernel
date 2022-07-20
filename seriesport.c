@@ -23,11 +23,13 @@ int init_serial()
 
 int is_buffer_empty()
 {
-    return inb(0x3f8+5) & 0x20;
+    return inb(0x3f8 + 5) & 0x20;
 }
 
 void Send_char(char c)
 {
+    init_serial();
+    while(is_buffer_empty() == 0);
     outb(0x3f8, c);
 }
 

@@ -149,28 +149,33 @@ void putint(int nb)
     int count = 1;
     int x = 0;
     int saved = nb;
-    if(nb < 0)
+    if(nb == 0)
+        putch('0');
+    else
     {
-        putch((unsigned char) '-');
-        nb *= -1;
-    }
-    while(nb > 0)
-    {
-        nb /= 10;
-        count *= 10;
-    }
-    while(count > 0)
-    {
-        if(x >= 1)
+        if(nb < 0)
         {
-            putch((saved/count) + 48);
-            saved -= (saved/count)*count;
-            count /= 10;
+            putch((unsigned char) '-');
+            nb *= -1;
         }
-        else
+        while(nb > 0)
         {
-            x += 1;
-            count /= 10;
+            nb /= 10;
+            count *= 10;
+        }
+        while(count > 0)
+        {
+            if(x >= 1)
+            {
+                putch((saved/count) + 48);
+                saved -= (saved/count)*count;
+                count /= 10;
+            }
+            else
+            {
+                x += 1;
+                count /= 10;
+            }
         }
     }
 }
@@ -203,9 +208,7 @@ void puthex(int nb)
 
 void sputs(unsigned char *text)
 {
-    int i;
-
-    for (i = 0; i < strlen((const char *)text); i++)
+    for (int i = 0; i < strlen((const char *) text); i++)
     {
         Send_char(text[i]);
     }
@@ -216,28 +219,33 @@ void sputint(int nb)
     int count = 1;
     int x = 0;
     int saved = nb;
-    if(nb < 0)
+    if(nb == 0)
+        Send_char('0');
+    else
     {
-        Send_char('-');
-        nb *= -1;
-    }
-    while(nb > 0)
-    {
-        nb /= 10;
-        count *= 10;
-    }
-    while(count > 0)
-    {
-        if(x >= 1)
+        if(nb < 0)
         {
-            Send_char((saved/count) + 48);
-            saved -= (saved/count)*count;
-            count /= 10;
+            Send_char('-');
+            nb *= -1;
         }
-        else
+        while(nb > 0)
         {
-            x += 1;
-            count /= 10;
+            nb /= 10;
+            count *= 10;
+        }
+        while(count > 0)
+        {
+            if(x >= 1)
+            {
+                Send_char((saved/count) + 48);
+                saved -= (saved/count)*count;
+                count /= 10;
+            }
+            else
+            {
+                x += 1;
+                count /= 10;
+            }
         }
     }
 }
@@ -247,24 +255,34 @@ void sputhex(int nb)
     int temp = 0;
     char * arr = "00000000";
     int i = 0;
-    while(nb > 0)
+    if(nb == 0)
     {
-        temp = nb % 16;
-        if(temp < 10)
+        for(int i = 0; i <= 7; i++)
         {
-            arr[i] = temp+48;
-            i += 1;
+            Send_char('0');
         }
-        else
-        {
-            arr[i] = temp+55;
-            i += 1;
-        }
-        nb /= 16;
     }
-    for(i = strlen(arr); i >= 0; i--)
+    else
     {
-        Send_char(arr[i]);
+        while(nb > 0)
+        {
+            temp = nb % 16;
+            if(temp < 10)
+            {
+                arr[i] = temp+48;
+                i += 1;
+            }
+            else
+            {
+                arr[i] = temp+55;
+                i += 1;
+            }
+            nb /= 16;
+        }
+        for(i = strlen(arr); i >= 0; i--)
+        {
+            Send_char(arr[i]);
+        }
     }
 }
 
@@ -354,7 +372,7 @@ void sprintf(unsigned char * str, ...)
             switch(str[i])
             {
                 case 'c':
-                    chara = va_arg(ap, int);
+                    chara = va_arg(ap, int32_t);
                     Send_char(chara);
                     break;
                 case 's':
@@ -362,19 +380,16 @@ void sprintf(unsigned char * str, ...)
                     sputs((unsigned char *) string);
                     break;
                 case 'd':
-                    inte = va_arg(ap, int);
+                    inte = va_arg(ap, int32_t);
                     sputint(inte);
-                    inte = 0;
                     break;
                 case 'u':
-                    unsi = va_arg(ap, unsigned int);
+                    unsi = va_arg(ap, uint32_t);
                     sputint(unsi);
-                    unsi = 0;
                     break;
                 case 'x':
                     hex = va_arg(ap, uint32_t);
                     sputhex(hex);
-                    hex = 0;
                     break;
                 default:
                     Send_char(str[i]);
