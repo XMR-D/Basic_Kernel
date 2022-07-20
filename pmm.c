@@ -1,80 +1,68 @@
 #include "system.h"
 
-typedef struct memblock{
-    uint32_t addr_high : 32;
-    uint32_t addr_low : 32;
-    uint32_t len_high : 32;
-    uint32_t len_low : 32;
-    uint32_t type : 32;
-}__attribute__((packed)) memblock_t;
-
-typedef struct multibootinfo{
-    uint32_t flags : 32;
-
-    uint32_t memlow : 32;
-    uint32_t memhigh : 32;
-    uint32_t boot_device : 32;
-
-    uint32_t cmdline : 32;
-    uint32_t mods_count : 32;
-    uint32_t mods_addr : 32;
-
-    uint32_t syms : 32;
-    uint32_t syms2 : 32;
-    uint32_t syms3 : 32;
-    uint32_t syms4 : 32;
-
-    uint32_t mmap_length : 32;
-    uint32_t mmap_addr : 32;
-}__attribute__((packed)) multibootinfo_t;
-
-
 void Memory_log(multibootinfo_t *  minfo)
 {
     sprintf((unsigned char *) "\n");
     sprintf((unsigned char *) "\n");
     sprintf((unsigned char *) "_______________Multiboot info struct log________________\n");
+    sprintf((unsigned char *) "struct adress : %x\n", &(minfo));
+    asm volatile("xchg %bx, %bx");
+    sprintf((unsigned char *) "struct value : %x\n", minfo);
     asm volatile("xchg %bx, %bx");
     sprintf((unsigned char *) "flags value = %x\n", minfo->flags);
     asm volatile("xchg %bx, %bx");
     sprintf((unsigned char *) "mem_lower / mem_upper : %x / %x\n", minfo->memlow, minfo->memhigh);
+    asm volatile("xchg %bx, %bx");
     sprintf((unsigned char *) "mmap length value = %x\n", minfo->mmap_length);
+    asm volatile("xchg %bx, %bx");
     sprintf((unsigned char *) "mmap addr value = %x\n", minfo->mmap_addr);
-    sprintf((unsigned char *) "______________Memory Bloc 1 log_________________________\n");
+}
 
-    multibootinfo_t * mbi = (uint32_t) minfo;
-    memblock_t * block = (uint32_t) mbi->mmap_addr;
+memblock_t get_block(uint32_t * block_addr)
+{
+    memblock_t result;
 
-    sprintf((unsigned char *) "block base addr : %x%x\nblock length : %x%x\nblock type: %x\n",block->addr_high, block->addr_low,  block->len_high, block->len_low, block->type);
+    result.size = *(block_addr);
+    sprintf("%x\n", result.size);
+    if(result.size == 0x14)
+        printf("01\n");
 
+    result.addr_high = *(block_addr +1);
+    sprintf("%x\n", result.addr_high);
+    if(result.addr_high == 0x0)
+        printf("02\n");
 
+    result.addr_low = *(block_addr + 2);
+    sprintf("%x\n", result.addr_low);
+    if(result.addr_low == 0x0)
+        printf("03\n");
 
+    result.len_low = *(block_addr + 3);
+    sprintf("%x\n", result.len_low);
+    if(result.len_low == 0x9fc00)
+        printf("04\n");
+
+    result.len_high =  *(block_addr + 4);
+    sprintf("%x\n", result.len_high);
+    if(result.len_high == 0x0)
+        printf("05\n");
+
+    result.type = *(block_addr + 5);
+    sprintf("%x\n", result.type);
+    if(result.type == 0x1)
+        printf("06\n");
+
+    return result;
 }
 
 
-int get_mmap(multibootinfo_t * minfo)
+int get_mmap(uint32_t address, multibootinfo_t * minfo)
 {
-    uint32_t mmap = minfo->mmap_addr;
-    uint32_t length = minfo->mmap_length;
-    Memory_log(minfo);
+    //Memory_log(minfo);
 
-    /*int count = 0;
+    memblock_t block = get_block(minfo->mmap_addr);
 
-    if(!(minfo->flags >> 6 & 0x1))
-    {
-        printf((unsigned char *) "invalid memory map !");
-        return 1;
-    }
+    /*sprintf("%x\n%x\n%x\n%x\n%x\n%x\n", block.size, block.addr_high, block.addr_low, block.len_high, block.len_low, block.type);*/
 
-    memblock_t * block = (memblock_t *) mmap;
-
-    for(uint32_t i = 0; i < length; i += 1)
-    {
-        count += 1;
-        sprintf((unsigned char *) "Memory bloc number %u : Start addr = %x%x || Length = %x%x || Type = %x\n",
-               count , block->addr_high, block->addr_low, block->len_high, block->len_low, block->type);
-        block = (mmap+sizeof(memblock_t *));
-        mmap = &block;
-    }*/
     return 0;
 }

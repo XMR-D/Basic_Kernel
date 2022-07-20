@@ -1,6 +1,5 @@
 [BITS 32]
 
-
 [section .multiboot]
 align 4
 
@@ -49,9 +48,10 @@ start:
 
 ; endless loop where we call main and other functions.
 stublet:
+    xchg bx, bx
     push ebx
-    extern get_mmap
-    call get_mmap
+    push eax
+    xchg bx, bx
     extern main
     call main
     jmp $

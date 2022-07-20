@@ -53,19 +53,18 @@ void outb (unsigned short _port, unsigned char _data)
     asm volatile("out %1, %0" : : "dN" (_port), "a" (_data));
 }
 
-void main()
+void main(uint32_t address, multibootinfo_t * minfo)
 {
     /* You would add commands after here */
 
     /* ...and leave this loop in. for(;;);*/
-
     gdt_install();
     init_video();
     idt_init();
     Irq_remap();
-
-    sprintf((unsigned char *) "\n");
+    get_mmap(address, minfo);
     printf((unsigned char *) "Hello kernel world!\n");
+
     asm volatile("sti");
 
 

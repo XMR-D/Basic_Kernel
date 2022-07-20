@@ -4,6 +4,40 @@
 //type and misc definitions
 typedef int size_t;
 
+typedef struct memblock{
+    uint32_t size : 32;
+    uint32_t addr_low : 32;
+    uint32_t addr_high : 32;
+    uint32_t len_low : 32;
+    uint32_t len_high : 32;
+    uint32_t type : 32;
+}__attribute__((packed)) memblock_t;
+
+typedef struct multibootinfo{
+    uint32_t flags : 32;
+
+    uint32_t memlow : 32;
+    uint32_t memhigh : 32;
+    uint32_t boot_device : 32;
+
+    uint32_t cmdline : 32;
+    uint32_t mods_count : 32;
+    uint32_t mods_addr : 32;
+
+    uint32_t syms : 32;
+    uint32_t syms2 : 32;
+    uint32_t syms3 : 32;
+    uint32_t syms4 : 32;
+
+    uint32_t mmap_length : 32;
+    uint32_t mmap_addr : 32;
+
+}__attribute__((packed)) multibootinfo_t;
+
+
+
+
+
 //main fncts
 extern void *memcpy(void *dest, const void *src, size_t count);
 extern void *memset(void *dest, char val, size_t count);
@@ -85,6 +119,6 @@ extern void Irq_remap();
 
 //PHysical memory manager functions
 
-//extern void get_mmap(multibootinfo * minfo);
+extern int get_mmap(uint32_t address, multibootinfo_t * minfo);
 
 #endif

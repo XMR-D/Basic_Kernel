@@ -329,7 +329,6 @@ void printf(unsigned char * str, ...)
             putch(str[i]);
             i += 1;
         }
-
     }
 }
 
@@ -365,14 +364,17 @@ void sprintf(unsigned char * str, ...)
                 case 'd':
                     inte = va_arg(ap, int);
                     sputint(inte);
+                    inte = 0;
                     break;
                 case 'u':
                     unsi = va_arg(ap, unsigned int);
                     sputint(unsi);
+                    unsi = 0;
                     break;
                 case 'x':
-                    hex = va_arg(ap, int);
+                    hex = va_arg(ap, uint32_t);
                     sputhex(hex);
+                    hex = 0;
                     break;
                 default:
                     Send_char(str[i]);
