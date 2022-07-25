@@ -11,28 +11,23 @@ typedef struct memblock{
     uint32_t len_low : 32;
     uint32_t len_high : 32;
     uint32_t type : 32;
-}__attribute__((packed)) memblock_t;
+}memblock_t;
 
 typedef struct multibootinfo{
     uint32_t flags : 32;
-
     uint32_t memlow : 32;
     uint32_t memhigh : 32;
     uint32_t boot_device : 32;
-
     uint32_t cmdline : 32;
     uint32_t mods_count : 32;
     uint32_t mods_addr : 32;
-
     uint32_t syms : 32;
     uint32_t syms2 : 32;
     uint32_t syms3 : 32;
     uint32_t syms4 : 32;
-
     uint32_t mmap_length : 32;
     uint32_t mmap_addr : 32;
-
-}__attribute__((packed)) multibootinfo_t;
+}multibootinfo_t;
 
 
 
@@ -55,7 +50,7 @@ extern void puts(unsigned char *str);
 extern void putint(int nb);
 extern void puthex(int nb);
 extern void sputint(int nb);
-extern void sputhex(int nb);
+extern void sputhex(uint32_t nb);
 extern void sputs(unsigned char *str);
 extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 extern void printf(unsigned char *str, ...);
@@ -117,8 +112,8 @@ extern void irqe15();
 
 extern void Irq_remap();
 
-//PHysical memory manager functions
+//Physical memory manager functions
 
-extern int get_mmap(multibootinfo_t * minfo);
+extern uint32_t mmap_info(multibootinfo_t * minfo);
 
 #endif

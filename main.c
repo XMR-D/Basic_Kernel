@@ -58,11 +58,13 @@ void main()
     /* You would add commands after here */
 
     /* ...and leave this loop in. for(;;);*/
+    asm volatile("xchg %bx, %bx");
     gdt_install();
     init_video();
     idt_init();
     Irq_remap();
     printf((unsigned char *) "Hello kernel world!\n");
+
 
     asm volatile("sti");
 

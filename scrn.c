@@ -250,7 +250,7 @@ void sputint(int nb)
     }
 }
 
-void sputhex(int nb)
+void sputhex(uint32_t nb)
 {
     int temp = 0;
     char * arr = "00000000";
@@ -302,11 +302,11 @@ void printf(unsigned char * str, ...)
     va_list ap;
 
     /* Set our constant for formatting string */
-    int chara;
-    char * string;
-    int inte;
-    int hex;
-    unsigned int unsi;
+    volatile int chara;
+    volatile char * string;
+    volatile int inte;
+    volatile int hex;
+    volatile unsigned int unsi;
     va_start(ap, str);
 
 
@@ -330,11 +330,11 @@ void printf(unsigned char * str, ...)
                     putint(inte);
                     break;
                 case 'u':
-                    unsi = va_arg(ap, unsigned int);
+                    unsi = va_arg(ap, uint32_t);
                     putint(unsi);
                     break;
                 case 'x':
-                    hex = va_arg(ap, int);
+                    hex = va_arg(ap, uint32_t);
                     puthex(hex);
                     break;
                 default:
@@ -348,6 +348,7 @@ void printf(unsigned char * str, ...)
             i += 1;
         }
     }
+    va_end(ap);
 }
 
 void sprintf(unsigned char * str, ...)
@@ -356,11 +357,11 @@ void sprintf(unsigned char * str, ...)
     va_list ap;
 
     /* Set our constant for formatting string */
-    int chara;
-    char * string;
-    int inte;
-    int hex;
-    unsigned int unsi;
+    volatile int chara;
+    volatile char * string;
+    volatile int inte;
+    volatile int hex;
+    volatile unsigned int unsi;
     va_start(ap, str);
 
 
@@ -388,7 +389,7 @@ void sprintf(unsigned char * str, ...)
                     sputint(unsi);
                     break;
                 case 'x':
-                    hex = va_arg(ap, uint32_t);
+                    hex = va_arg(ap, int32_t);
                     sputhex(hex);
                     break;
                 default:
@@ -403,6 +404,7 @@ void sprintf(unsigned char * str, ...)
         }
 
     }
+    va_end(ap);
 }
 
 char keymap[89] =

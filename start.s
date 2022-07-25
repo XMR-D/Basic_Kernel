@@ -48,7 +48,6 @@ start:
 
 ; endless loop where we call main and other functions.
 stublet:
-    xchg bx, bx
     push ebx
     extern get_mmap
     call get_mmap
