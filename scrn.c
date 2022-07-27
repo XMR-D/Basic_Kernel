@@ -206,6 +206,43 @@ void puthex(int nb)
     }
 }
 
+void putbin(uint32_t nb)
+{
+    uint32_t val = 0b10000000;
+    while(val > 0)
+    {
+        if((nb & val) == 0)
+        {
+            putch('0');
+            val = val >> 1;
+        }
+        else
+        {
+            putch('1');
+            val = val >> 1;
+        }
+    }
+}
+
+void sputbin(uint32_t nb)
+{
+    uint32_t val = 0b10000000;
+    while(val > 0)
+    {
+        if((nb & val) == 0)
+        {
+            Send_char('0');
+            val = val >> 1;
+        }
+        else
+        {
+            Send_char('1');
+            val = val >> 1;
+        }
+    }
+}
+
+
 void sputs(unsigned char *text)
 {
     for (int i = 0; i < strlen((const char *) text); i++)
@@ -253,37 +290,28 @@ void sputint(int nb)
 void sputhex(uint32_t nb)
 {
     int temp = 0;
-    char * arr = "00000000";
+    char arr[] = "00000000";
     int i = 0;
-    if(nb == 0)
+    while(nb > 0)
     {
-        for(int i = 0; i <= 7; i++)
+        temp = nb % 16;
+        if(temp < 10)
         {
-            Send_char('0');
+            arr[i] = temp+48;
+            i += 1;
         }
+        else
+        {
+            arr[i] = temp+55;
+            i += 1;
+        }
+        nb /= 16;
     }
-    else
+    for(i = strlen(arr); i >= 0; i--)
     {
-        while(nb > 0)
-        {
-            temp = nb % 16;
-            if(temp < 10)
-            {
-                arr[i] = temp+48;
-                i += 1;
-            }
-            else
-            {
-                arr[i] = temp+55;
-                i += 1;
-            }
-            nb /= 16;
-        }
-        for(i = strlen(arr); i >= 0; i--)
-        {
-            Send_char(arr[i]);
-        }
+        Send_char(arr[i]);
     }
+    
 }
 
 
@@ -302,11 +330,12 @@ void printf(unsigned char * str, ...)
     va_list ap;
 
     /* Set our constant for formatting string */
-    volatile int chara;
-    volatile char * string;
-    volatile int inte;
-    volatile int hex;
-    volatile unsigned int unsi;
+    int chara;
+    char * string;
+    int inte;
+    int hex;
+    unsigned int unsi;
+    uint32_t bin;
     va_start(ap, str);
 
 
@@ -337,6 +366,10 @@ void printf(unsigned char * str, ...)
                     hex = va_arg(ap, uint32_t);
                     puthex(hex);
                     break;
+                case 'b':
+                    bin = va_arg(ap, uint32_t);
+                    putbin(bin);
+                    break;
                 default:
                     putch(str[i]);
             }
@@ -357,11 +390,12 @@ void sprintf(unsigned char * str, ...)
     va_list ap;
 
     /* Set our constant for formatting string */
-    volatile int chara;
-    volatile char * string;
-    volatile int inte;
-    volatile int hex;
-    volatile unsigned int unsi;
+    int chara;
+    char * string;
+    int inte;
+    unsigned int hex;
+    unsigned int unsi;
+    uint32_t bin;
     va_start(ap, str);
 
 
@@ -389,8 +423,12 @@ void sprintf(unsigned char * str, ...)
                     sputint(unsi);
                     break;
                 case 'x':
-                    hex = va_arg(ap, int32_t);
+                    hex = va_arg(ap, uint32_t);
                     sputhex(hex);
+                    break;
+                case 'b':
+                    bin = va_arg(ap, uint32_t);
+                    sputbin(bin);
                     break;
                 default:
                     Send_char(str[i]);
