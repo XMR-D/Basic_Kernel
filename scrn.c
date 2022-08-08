@@ -242,6 +242,41 @@ void sputbin(uint32_t nb)
     }
 }
 
+void putBin(uint64_t nb)
+{
+    uint64_t val = 0b1000000000000000;
+    while(val > 0)
+    {
+        if((nb & val) == 0)
+        {
+            putch('0');
+            val = val >> 1;
+        }
+        else
+        {
+            putch('1');
+            val = val >> 1;
+        }
+    }
+}
+
+void sputBin(uint64_t nb)
+{
+    uint64_t val = 0b1000000000000000;
+    while(val > 0)
+    {
+        if((nb & val) == 0)
+        {
+            Send_char('0');
+            val = val >> 1;
+        }
+        else
+        {
+            Send_char('1');
+            val = val >> 1;
+        }
+    }
+}
 
 void sputs(unsigned char *text)
 {
@@ -336,6 +371,7 @@ void printf(unsigned char * str, ...)
     int hex;
     unsigned int unsi;
     uint32_t bin;
+    uint64_t Bin;
     va_start(ap, str);
 
 
@@ -369,6 +405,10 @@ void printf(unsigned char * str, ...)
                 case 'b':
                     bin = va_arg(ap, uint32_t);
                     putbin(bin);
+                    break;
+                case 'B':
+                    Bin = va_arg(ap, uint64_t);
+                    putBin(Bin);
                     break;
                 default:
                     putch(str[i]);

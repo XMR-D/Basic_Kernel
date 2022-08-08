@@ -32,60 +32,66 @@ void Bitmaplog(uint64_t nbpages)
     sprintf("\n");
 }
 
-uint8_t * get_mmap(multibootinfo_t * mbd)
+void set_bitmap(uint8_t * map)
+{
+    for(uint64_t i = 0; i <= bitmaplen; i++)
+    {
+        map[i] = 0;
+    }
+}
+
+void get_mmap(multibootinfo_t * mbd)
 {
     Multiboot_log(mbd);
     uint8_t c = 0;
-    uint32_t saved = 0;
+    uint64_t saved = 0;
     uint32_t i;
     uint64_t length;
+    uint64_t addr;
     uint64_t nbpages = 0;
 
-    for(i = 0; i < mbd->mmap_length;
-        i += sizeof(memblock_t))
+    for(i = 0; i < mbd->mmap_length; i += sizeof(memblock_t))
     {
         memblock_t* mmmt = (memblock_t *) (mbd->mmap_addr + i);
 
         sprintf((unsigned char *) "Start Addr: %x%x | Length: %x%x | Size: %x | Type: %d\n",
             mmmt->addr_high, mmmt->addr_low, mmmt->len_high, mmmt->len_low, mmmt->size, mmmt->type);
 
+        length = (((uint64_t) mmmt->len_high) << 8) | (uint64_t) mmmt->len_low;
+        addr = (((uint64_t) mmmt->addr_high) << 8) | (uint64_t) mmmt->addr_low;
+
         if(mmmt->type == 1)
         {
             if(c == 0)
             {
-                saved = mmmt->addr_low;
+                saved = addr;
                 c += 1;
             }
-            length = ((uint64_t) (mmmt->len_high << 8)) + ((uint64_t) mmmt->len_low);
             nbpages += (length / 0x1000);
             sprintf((unsigned char *) "pages in this block = %d\n", (length/0x1000));
         }
     }
 
-
     sprintf((unsigned char *) "total available pages : %d\n", nbpages);
     sprintf((unsigned char *) "creating appropriate bitmap....\n");
 
-    uint8_t bitmap[(nbpages/8)];
 
+    uint8_t bitmap[(nbpages/8)];
     bitm = (uint8_t *) bitmap;
     bitmaplen = (nbpages/8);
 
-    for(uint64_t j = 0; j <= bitmaplen; j++)
-    {
-        bitm[i] = 0b00000000;
-    }
+    //set_bitmap(bitm);
 
     sprintf((unsigned char *) "bitmap stored at adress = %x\n", saved);
-
     Bitmaplog(80);
 
 }
 
-uint8_t allocate(uint64_t i)
+uintptr_t * allocate(uint64_t i) //on i-nth uint8_t from bitmap set the first 0 to 1 and return the page address
 {
     uint8_t c = 128;
     uint8_t saved = bitm[i];
+    uint8_t n = 0;
 
     if(bitm[i] == 0)
     {
@@ -96,26 +102,29 @@ uint8_t allocate(uint64_t i)
     {
         if((saved && 0b10000000) == 0)
         {
-            bitm[i] = bitm[i] | c;
-            return 0;
+            bitm[i] = bitm[i] || c;
+            return;
         }
         else
         {
             saved = saved << 1;
             c /= 2;
+            n += 1;
         }
     }
 
 }
 
-uint32_t alloc(void)
+uintptr_t * alloc(void)
 {
+   uintptr_t * address;
    for(uint64_t i = 0; ;i++)
    {
        if(bitm[i] != 1)
        {
-           allocate(i);
+           address = allocate(i);
        }
    }
+   return address;
 }
 

@@ -10,11 +10,6 @@ CFLAGS = -O0 -g -m32 -Wall -Wextra $(OPTI) -I$(KERNEL_DIR) -std=gnu17
 
 ASMPARAM = -f elf32 -F dwarf
 
-ASSETS = ../assets/
-LOGO = $(ASSETS)/chad-logo-1.bmp
-
-ISO_FILES = $(KERNEL).elf limine.cfg limine/limine.sys limine/limine-cd.bin limine/limine-eltorito-efi.bin $(LOGO) $(RAMDISK)
-
 CORE_NUM = 1
 
 LINK_SCRIPT = $(KERNEL_DIR)/link.ld

@@ -101,7 +101,7 @@ week 7: Keyboard driver coding
 		-- i did not push the err code so i fixed it and it work just fine.
 
 week 8: MEMORY MAP AND PMM (KILL ME)
-(03/06/22 - )
+(03/06/22 - 08/08/22)
 		-- To get the memory map, first i need to push ebx before jumping into
 		the kernel, and then get the multiboot info struct to get the memory
 		map address, then i code a simple for function to print all the
@@ -112,5 +112,15 @@ week 8: MEMORY MAP AND PMM (KILL ME)
 		nothing, i checked the aligment and nothing, i rechecked the objdump
 		of the functions nothing, tried to put "volatile" AND STILL NOTHING !
 		arrrrrr, need some coffee.
+		
+		-- I found the problem thanks to a friend, it was coming from my declaration of
+		a string i used in a print function, i wrote "char * string" 
+		instead of "char string[]", this declaration turned my string global instead of
+		local. I WANT TO KILL ME I ALREADY LOSE MY SANITY 5 TIMES, but anyways it work
+		now
+		
+		-- I decided to work on an external project of a friend at the LSE (he ask me of
+		course) ! i will no try to port an exokernel on grub so im hyped but it means i
+		stop the implementation of my basic kernel here for a moment.
 
 
