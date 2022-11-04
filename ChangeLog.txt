@@ -120,7 +120,11 @@ week 8: MEMORY MAP AND PMM (KILL ME)
 		now
 		
 		-- I decided to work on an external project of a friend at the LSE (he ask me of
-		course) ! i will no try to port an exokernel on grub so im hyped but it means i
+		course) ! i will now try to port an exokernel on grub so im hyped but it means i
 		stop the implementation of my basic kernel here for a moment.
+		
+week x : PISCINE
+
+week x+1 : PISCINE is finished but i want to rework the port, in fact changing all the grub structs to limine structs is not hard as itself but it's take time to do the right thing
 
 
